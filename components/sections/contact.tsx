@@ -148,7 +148,7 @@ const Contact = () => {
                 </Button>
                 {status === "success" ? (
                   <p className="text-xs text-highlight">
-                    Thank you for your message! I'll get back to you soon.
+                    Thank you for your message! I&apos;ll get back to you soon.
                   </p>
                 ) : null}
                 {status === "error" ? (
@@ -167,7 +167,7 @@ const Contact = () => {
             </h3>
             <p className="text-sm text-muted-foreground">
               Prefer to send a message directly? You can find me on the
-              following platforms. I'm usually the fastest to respond on
+              following platforms. I&apos;m usually the fastest to respond on
               LinkedIn.
             </p>
             <ul className="space-y-4 text-sm text-foreground">
