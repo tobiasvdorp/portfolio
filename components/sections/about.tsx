@@ -3,6 +3,7 @@
 import FadeIn from "@/components/motion/fade-in";
 import SectionHeading from "@/components/ui/section-heading";
 import { aboutContent, personalDetails } from "@/data/content";
+import { GlowingCard } from "../ui/glowing-card";
 
 const About = () => (
   <section id="about" className="space-y-10">
@@ -18,10 +19,7 @@ const About = () => (
         <p className="text-lg">{aboutContent.bio[2]}</p>
       </FadeIn>
       <FadeIn delay={0.15} className="">
-        <div className="flex flex-col gap-5 rounded-3xl border border-white/10 bg-gradient-to-br from-white/5 via-background/60 to-transparent p-6 shadow-inner">
-          <h3 className="font-display text-xl font-semibold text-foreground">
-            Quick facts
-          </h3>
+        <GlowingCard title="Quick facts">
           <ul className="space-y-4 text-sm text-muted-foreground">
             {personalDetails.map((detail) => (
               <li
@@ -37,7 +35,7 @@ const About = () => (
               </li>
             ))}
           </ul>
-        </div>
+        </GlowingCard>
       </FadeIn>
     </div>
   </section>
