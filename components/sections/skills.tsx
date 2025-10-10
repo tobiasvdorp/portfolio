@@ -41,12 +41,12 @@ const Skills = () => {
                     const isActive = activeSkill.name === skill.name;
                     return (
                       <button
+                        key={skill.name}
                         type="button"
                         onClick={() => setActiveSkill(skill)}
                         className="relative hover:cursor-pointer"
                       >
                         <CardSpotlight
-                          key={skill.name}
                           className={cn(
                             "relative overflow-hidden rounded-2xl border border-white/10 bg-background/60 px-4 py-6 text-left text-sm font-medium text-foreground transition focus:outline-none focus-visible:ring-2 focus-visible:ring-highlight/70",
                             {
