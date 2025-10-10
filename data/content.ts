@@ -1,26 +1,41 @@
+import { generateCurrentAge } from "@/lib/utils";
+
 export const heroContent = {
   name: "Tobias van Dorp",
   role: "Passionate front-end developer",
   tagline:
-    "Ik ontwerp en bouw toegankelijke digitale ervaringen met Next.js en een flinke dosis nieuwsgierigheid.",
+    "I design and build accessible digital experiences with Next.js and a healthy dose of curiosity.",
   location: "Maarn, Utrecht, Nederland",
-  availability:
-    "Beschikbaar voor stage- en freelance-opdrachten vanaf september 2025.",
-  // summary:
-  //   "Ik ben 22 jaar en combineer techniek met creativiteit om interfaces te maken die zowel snel als betekenisvol zijn. Wanneer ik niet aan het coderen ben, vind je me bij mijn hond, vrienden of verdwaald in een goed programmeerartikel.",
-  bio: "I'm 22 years old and I've always had an interest in computers, but it wasn't until I started my studies that I realized how much of a nerd I really am. I love combining the technical aspects with creativity to make engaging and functional user interfaces. When I'm not coding, you can usually find me playing with my dog, hanging out with friends or watching science and programming video’s. I'm still exploring my interests, but I'm thrilled to have found a field I'm passionate about.",
-  // highlights: [
-  //   "Focus op toegankelijkheid",
-  //   "Sterke basis in React & Next.js",
-  //   "Teamspeler met Agile-ervaring",
-  // ],
+  availability: "Available for part-time freelance-assignments.",
+};
+
+export const aboutContent = {
+  heading: {
+    eyebrow: "About me",
+    title: "A creative nerd",
+    description:
+      "I work closely with the product and team. With a focus on accessibility and performance, I make sure every detail is perfect.",
+  },
+  bio: [
+    "I'm 22 years old and I've always had an interest in computers, but it wasn't until I started my studies that I realized how much of a nerd I really am. I love combining the technical aspects with creativity to make engaging and functional user interfaces. When I'm not coding, you can usually find me playing with my dog, hanging out with friends or watching science and programming video’s",
+
+    // "During projects, I love to discover the true needs with stakeholders. Then I translate those insights into clear components, documentation and iterations. I learn quickly, ask a lot of questions and am not afraid to take responsibility.",
+
+    // "I keep myself developing by trying out new tools, reading documentation and following open-source projects. This way, I always bring the latest best practices to my work.",
+  ],
 };
 
 export const personalDetails = [
-  { label: "Geboortedatum", value: "7 februari 2003" },
-  { label: "Locatie", value: "Maarn, Utrecht, Nederland" },
-  { label: "Studie", value: "Bachelor OpenICT, Hogeschool Utrecht" },
-  { label: "Favoriete stack", value: "Next.js · TypeScript · TailwindCSS" },
+  {
+    label: "Age",
+    value: `${generateCurrentAge("2003-02-07")} years old`,
+  },
+  { label: "Location", value: "Utrecht, Netherlands" },
+  { label: "Study", value: "Bachelor OpenICT, Hogeschool Utrecht" },
+  {
+    label: "Favorite stack",
+    value: "React · Next.js · TypeScript · TailwindCSS",
+  },
 ];
 
 export type TimelineItem = {
@@ -35,11 +50,11 @@ export type TimelineItem = {
 
 export const timeline: TimelineItem[] = [
   {
-    title: "HAVO-diploma",
+    title: "HAVO-degree",
     period: "Juli 2021",
     location: "Amersfoort, Utrecht",
     summary:
-      "Ik startte op het gymnasium maar maakte al snel de switch naar de HAVO. Daar behaalde ik niet alleen mijn diploma, maar ook de hoogste examenscore van de hele opleiding.",
+      "I started at the gymnasium but quickly switched to the HAVO. There I not only got my diploma, but also the highest exam score in the entire study.",
     highlight: "Winnaar van de Socrates Award voor hoogste eindexamencijfer.",
     linkLabel: "Lees meer over de Socrates Awards",
     linkUrl: "https://www.socrateshonours.org/lid-worden/socrates-awards",
