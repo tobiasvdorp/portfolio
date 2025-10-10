@@ -6,6 +6,8 @@ import FadeIn from "@/components/motion/fade-in";
 import SectionHeading from "@/components/ui/section-heading";
 import { skills } from "@/data/content";
 import { GlowingCard } from "../ui/glowing-card";
+import { CardSpotlight } from "../ui/card-spotlight";
+import { cn } from "@/lib/utils";
 
 const Skills = () => {
   const groupedSkills = useMemo(() => {
@@ -17,7 +19,7 @@ const Skills = () => {
     }, {});
   }, []);
 
-  const [activeSkill, setActiveSkill] = useState(() => skills[0]);
+  const [activeSkill, setActiveSkill] = useState(skills[0]);
 
   return (
     <section id="skills" className="space-y-12">
@@ -39,23 +41,21 @@ const Skills = () => {
                     const isActive = activeSkill.name === skill.name;
                     return (
                       <button
-                        key={skill.name}
                         type="button"
                         onClick={() => setActiveSkill(skill)}
-                        className="relative overflow-hidden rounded-2xl border border-white/10 bg-background/60 px-4 py-6 text-left text-sm font-medium text-foreground transition hover:border-highlight/70 focus:outline-none focus-visible:ring-2 focus-visible:ring-highlight/70"
+                        className="relative hover:cursor-pointer"
                       >
-                        {isActive ? (
-                          <motion.span
-                            layoutId="skill-highlight"
-                            className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-br from-highlight/30 via-accent/30 to-transparent"
-                            transition={{
-                              type: "spring",
-                              stiffness: 300,
-                              damping: 30,
-                            }}
-                          />
-                        ) : null}
-                        {skill.name}
+                        <CardSpotlight
+                          key={skill.name}
+                          className={cn(
+                            "relative overflow-hidden rounded-2xl border border-white/10 bg-background/60 px-4 py-6 text-left text-sm font-medium text-foreground transition focus:outline-none focus-visible:ring-2 focus-visible:ring-highlight/70",
+                            {
+                              "border border-highlight": isActive,
+                            }
+                          )}
+                        >
+                          <span className="z-10 relative">{skill.name}</span>
+                        </CardSpotlight>
                       </button>
                     );
                   })}
@@ -65,7 +65,6 @@ const Skills = () => {
           </div>
         </FadeIn>
         <FadeIn delay={0.1} className="h-full">
-          {/* <div className="flex h-full flex-col gap-4 rounded-3xl border border-white/10 bg-gradient-to-br from-white/5 via-background/70 to-transparent p-6 shadow-inner sm:p-10"> */}
           <GlowingCard>
             <motion.span
               key={activeSkill.name}
