@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
-import ShinyButton from "@/components/ui/shiny-button";
+import { Button } from "../ui/button";
 import FadeIn from "@/components/motion/fade-in";
 import { heroContent } from "@/data/content";
 
@@ -63,10 +64,12 @@ const Hero = () => (
         </FadeIn>
         <FadeIn delay={0.4}>
           <div className="flex flex-wrap gap-3">
-            <ShinyButton href="#projects">Bekijk projecten</ShinyButton>
-            <ShinyButton href="#contact" variant="ghost">
-              Laten we praten
-            </ShinyButton>
+            <Button asChild>
+              <Link href="#projects">Bekijk projecten</Link>
+            </Button>
+            <Button asChild variant="ghost">
+              <Link href="#contact">Laten we praten</Link>
+            </Button>
           </div>
         </FadeIn>
         <FadeIn delay={0.5}>

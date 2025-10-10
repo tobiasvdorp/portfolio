@@ -4,11 +4,11 @@ import { useState, type ReactNode } from "react";
 import { useForm } from "react-hook-form";
 import FadeIn from "@/components/motion/fade-in";
 import SectionHeading from "@/components/ui/section-heading";
-import ShinyButton from "@/components/ui/shiny-button";
 import DiscordIcon from "@/components/icons/discord-icon";
 import GithubIcon from "@/components/icons/github-icon";
 import LinkedInIcon from "@/components/icons/linkedin-icon";
 import { formEndpoint, socials } from "@/data/content";
+import { Button } from "../ui/button";
 
 type ContactForm = {
   name: string;
@@ -139,13 +139,9 @@ const Contact = () => {
               ) : null}
             </div>
             <div className="flex items-center gap-3">
-              <ShinyButton
-                className="justify-center"
-                icon={<span aria-hidden>→</span>}
-                type="submit"
-              >
+              <Button className="justify-center" type="submit">
                 {isSubmitting ? "Versturen..." : "Versturen"}
-              </ShinyButton>
+              </Button>
               {status === "success" ? (
                 <p className="text-xs text-highlight">
                   Bedankt voor je bericht! Ik neem snel contact op.

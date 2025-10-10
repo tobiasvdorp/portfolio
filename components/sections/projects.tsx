@@ -4,8 +4,9 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import FadeIn from "@/components/motion/fade-in";
 import SectionHeading from "@/components/ui/section-heading";
-import ShinyButton from "@/components/ui/shiny-button";
+import { Button } from "../ui/button";
 import { projects } from "@/data/content";
+import Link from "next/link";
 
 const ProjectCard = ({ project }: { project: (typeof projects)[number] }) => (
   <motion.article
@@ -47,13 +48,9 @@ const ProjectCard = ({ project }: { project: (typeof projects)[number] }) => (
         ))}
       </div>
       {project.href ? (
-        <ShinyButton
-          href={project.href}
-          className="w-full justify-center"
-          variant="ghost"
-        >
-          Bekijk project
-        </ShinyButton>
+        <Button asChild className="w-full justify-center" variant="ghost">
+          <Link href={project.href}>Bekijk project</Link>
+        </Button>
       ) : null}
     </div>
   </motion.article>
