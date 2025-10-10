@@ -5,8 +5,6 @@ export const heroContent = {
   role: "Passionate front-end developer",
   tagline:
     "I design and build accessible digital experiences with Next.js and a healthy dose of curiosity.",
-  location: "Maarn, Utrecht, Nederland",
-  availability: "Available for part-time freelance-assignments.",
 };
 
 export const aboutContent = {

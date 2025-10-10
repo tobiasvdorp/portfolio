@@ -9,6 +9,7 @@ import GithubIcon from "@/components/icons/github-icon";
 import LinkedInIcon from "@/components/icons/linkedin-icon";
 import { formEndpoint, socials } from "@/data/content";
 import { Button } from "../ui/button";
+import { GlowingCard } from "../ui/glowing-card";
 
 type ContactForm = {
   name: string;
@@ -29,7 +30,7 @@ const Contact = () => {
     reset,
     formState: { errors, isSubmitting },
   } = useForm<ContactForm>({
-    mode: "onTouched",
+    mode: "onSubmit",
     defaultValues: { name: "", email: "", message: "" },
   });
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
@@ -68,101 +69,106 @@ const Contact = () => {
         description="Ik reageer meestal binnen een dag. Vul het formulier in of kies één van de socials."
       />
       <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-        <FadeIn className="rounded-3xl border border-white/10 bg-background/70 p-6 shadow-lg sm:p-10">
-          <form className="space-y-5" onSubmit={handleSubmit(onSubmit)}>
-            <div className="space-y-2">
-              <label
-                htmlFor="name"
-                className="text-sm font-medium text-foreground"
-              >
-                Naam
-              </label>
-              <input
-                id="name"
-                type="text"
-                {...register("name", {
-                  required: "Vul je naam in alsjeblieft.",
-                })}
-                className="w-full rounded-2xl border border-white/10 bg-background/60 px-4 py-3 text-sm text-foreground outline-none transition focus:border-highlight/70 focus:ring-2 focus:ring-highlight/60"
-                placeholder="Hoe mag ik je aanspreken?"
-              />
-              {errors.name ? (
-                <p className="text-xs text-accent">{errors.name.message}</p>
-              ) : null}
-            </div>
-            <div className="space-y-2">
-              <label
-                htmlFor="email"
-                className="text-sm font-medium text-foreground"
-              >
-                E-mailadres
-              </label>
-              <input
-                id="email"
-                type="email"
-                {...register("email", {
-                  required: "Een e-mailadres is verplicht.",
-                  pattern: {
-                    value: /\S+@\S+\.\S+/,
-                    message: "Gebruik een geldig e-mailadres.",
-                  },
-                })}
-                className="w-full rounded-2xl border border-white/10 bg-background/60 px-4 py-3 text-sm text-foreground outline-none transition focus:border-highlight/70 focus:ring-2 focus:ring-highlight/60"
-                placeholder="naam@voorbeeld.nl"
-              />
-              {errors.email ? (
-                <p className="text-xs text-accent">{errors.email.message}</p>
-              ) : null}
-            </div>
-            <div className="space-y-2">
-              <label
-                htmlFor="message"
-                className="text-sm font-medium text-foreground"
-              >
-                Bericht
-              </label>
-              <textarea
-                id="message"
-                rows={5}
-                {...register("message", {
-                  required: "Laat even weten waar ik je mee kan helpen.",
-                  minLength: {
-                    value: 10,
-                    message: "Je bericht mag iets uitgebreider zijn.",
-                  },
-                })}
-                className="w-full rounded-2xl border border-white/10 bg-background/60 px-4 py-3 text-sm text-foreground outline-none transition focus:border-highlight/70 focus:ring-2 focus:ring-highlight/60"
-                placeholder="Vertel me meer over je project of vraag"
-              />
-              {errors.message ? (
-                <p className="text-xs text-accent">{errors.message.message}</p>
-              ) : null}
-            </div>
-            <div className="flex items-center gap-3">
-              <Button className="justify-center" type="submit">
-                {isSubmitting ? "Versturen..." : "Versturen"}
-              </Button>
-              {status === "success" ? (
-                <p className="text-xs text-highlight">
-                  Bedankt voor je bericht! Ik neem snel contact op.
-                </p>
-              ) : null}
-              {status === "error" ? (
-                <p className="text-xs text-accent">
-                  Er ging iets mis. Probeer het later opnieuw of stuur een DM.
-                </p>
-              ) : null}
-            </div>
-          </form>
+        <FadeIn>
+          <GlowingCard gradient={false}>
+            <form className="space-y-5" onSubmit={handleSubmit(onSubmit)}>
+              <div className="space-y-2">
+                <label
+                  htmlFor="name"
+                  className="text-sm font-medium text-foreground"
+                >
+                  Name
+                </label>
+                <input
+                  id="name"
+                  type="text"
+                  {...register("name", {
+                    required: "Please enter your name.",
+                  })}
+                  className="w-full rounded-2xl border border-white/10 bg-background/60 px-4 py-3 text-sm text-foreground outline-none transition focus:border-highlight/70 focus:ring-2 focus:ring-highlight/60"
+                  placeholder="How can I address you?"
+                />
+                {errors.name ? (
+                  <p className="text-xs text-accent">{errors.name.message}</p>
+                ) : null}
+              </div>
+              <div className="space-y-2">
+                <label
+                  htmlFor="email"
+                  className="text-sm font-medium text-foreground"
+                >
+                  Email address
+                </label>
+                <input
+                  id="email"
+                  type="email"
+                  {...register("email", {
+                    required: "An email address is required.",
+                    pattern: {
+                      value: /\S+@\S+\.\S+/,
+                      message: "Please enter a valid email address.",
+                    },
+                  })}
+                  className="w-full rounded-2xl border border-white/10 bg-background/60 px-4 py-3 text-sm text-foreground outline-none transition focus:border-highlight/70 focus:ring-2 focus:ring-highlight/60"
+                  placeholder="name@example.com"
+                />
+                {errors.email ? (
+                  <p className="text-xs text-accent">{errors.email.message}</p>
+                ) : null}
+              </div>
+              <div className="space-y-2">
+                <label
+                  htmlFor="message"
+                  className="text-sm font-medium text-foreground"
+                >
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  rows={5}
+                  {...register("message", {
+                    required: "Please let me know how I can help you.",
+                    minLength: {
+                      value: 10,
+                      message: "Your message should be more detailed.",
+                    },
+                  })}
+                  className="w-full rounded-2xl border border-white/10 bg-background/60 px-4 py-3 text-sm text-foreground outline-none transition focus:border-highlight/70 focus:ring-2 focus:ring-highlight/60"
+                  placeholder="Tell me more about your project or ask"
+                />
+                {errors.message ? (
+                  <p className="text-xs text-accent">
+                    {errors.message.message}
+                  </p>
+                ) : null}
+              </div>
+              <div className="flex items-center gap-3">
+                <Button className="justify-center" type="submit">
+                  {isSubmitting ? "Sending..." : "Send"}
+                </Button>
+                {status === "success" ? (
+                  <p className="text-xs text-highlight">
+                    Thank you for your message! I'll get back to you soon.
+                  </p>
+                ) : null}
+                {status === "error" ? (
+                  <p className="text-xs text-accent">
+                    Something went wrong. Please try again later or send a DM.
+                  </p>
+                ) : null}
+              </div>
+            </form>
+          </GlowingCard>
         </FadeIn>
         <FadeIn delay={0.12} className="h-full">
           <div className="flex h-full flex-col gap-6 rounded-3xl border border-white/10 bg-gradient-to-br from-white/5 via-background/70 to-transparent p-6 shadow-inner sm:p-10">
             <h3 className="font-display text-xl font-semibold text-foreground">
-              Connecteer via socials
+              Connect via socials
             </h3>
             <p className="text-sm text-muted-foreground">
-              Liever direct een bericht sturen? Je vindt me op onderstaande
-              platforms. Op Discord ben ik meestal het snelst bereikbaar.
+              Prefer to send a message directly? You can find me on the
+              following platforms. I'm usually the fastest to respond on
+              LinkedIn.
             </p>
             <ul className="space-y-4 text-sm text-foreground">
               {socials.map((social) => (

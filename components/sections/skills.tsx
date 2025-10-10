@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import FadeIn from "@/components/motion/fade-in";
 import SectionHeading from "@/components/ui/section-heading";
 import { skills } from "@/data/content";
+import { GlowingCard } from "../ui/glowing-card";
 
 const Skills = () => {
   const groupedSkills = useMemo(() => {
@@ -64,13 +65,14 @@ const Skills = () => {
           </div>
         </FadeIn>
         <FadeIn delay={0.1} className="h-full">
-          <div className="flex h-full flex-col gap-4 rounded-3xl border border-white/10 bg-gradient-to-br from-white/5 via-background/70 to-transparent p-6 shadow-inner sm:p-10">
+          {/* <div className="flex h-full flex-col gap-4 rounded-3xl border border-white/10 bg-gradient-to-br from-white/5 via-background/70 to-transparent p-6 shadow-inner sm:p-10"> */}
+          <GlowingCard>
             <motion.span
               key={activeSkill.name}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, ease: "easeOut" }}
-              className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-highlight"
+              className="text-xs uppercase tracking-[0.3em] text-highlight"
             >
               {activeSkill.category}
             </motion.span>
@@ -101,7 +103,8 @@ const Skills = () => {
             >
               {activeSkill.proficiency}
             </motion.p>
-          </div>
+            {/* </div> */}
+          </GlowingCard>
         </FadeIn>
       </div>
     </section>

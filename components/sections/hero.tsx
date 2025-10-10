@@ -6,7 +6,6 @@ import { Button } from "../ui/button";
 import FadeIn from "@/components/motion/fade-in";
 import { heroContent } from "@/data/content";
 import { Eyebrow } from "../ui/eyebrow";
-import InfoCard from "../ui/info-card";
 import { cn } from "@/lib/utils";
 import { BackgroundRippleEffect } from "../ui/background-ripple-effect";
 
