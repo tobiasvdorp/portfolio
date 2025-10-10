@@ -21,7 +21,7 @@ const Skills = () => {
   return (
     <section id="skills" className="space-y-12">
       <SectionHeading
-        eyebrow="Skills"
+        label="Skills"
         title="Superkrachten die ik inzet in projecten"
         description="Van basisprincipes tot moderne frameworks: ik combineer sterke fundamenten met nieuwsgierigheid naar nieuwe tools."
       />

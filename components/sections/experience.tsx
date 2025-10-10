@@ -7,7 +7,7 @@ import { timeline } from "@/data/content";
 const Experience = () => (
   <section id="experience" className="space-y-12">
     <SectionHeading
-      eyebrow="Carrière"
+      label="Carrière"
       title="Ervaring die mijn manier van werken vormt"
       description="Ik groei het snelst door projecten te doen. Elke stap in mijn opleiding en werkervaring heeft me iets geleerd over samenwerken, toegankelijkheid en het leveren van waarde."
     />

@@ -59,7 +59,7 @@ const ProjectCard = ({ project }: { project: (typeof projects)[number] }) => (
 const Projects = () => (
   <section id="projects" className="space-y-12">
     <SectionHeading
-      eyebrow="Projecten"
+      label="Projecten"
       title="Cases waar ik trots op ben"
       description="Een selectie van projecten waarin ik veel leerde over samenwerking, ontwerp, development en communicatie met opdrachtgevers."
     />

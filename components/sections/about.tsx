@@ -7,7 +7,7 @@ import { heroContent, personalDetails } from "@/data/content";
 const About = () => (
   <section id="about" className="space-y-10">
     <SectionHeading
-      eyebrow="Over mij"
+      label="Over mij"
       title="Een creatieve nerd met een liefde voor functionele interfaces"
       description="Ik werk graag dicht op het product en het team. Met een focus op toegankelijkheid en performance zorg ik ervoor dat elk detail klopt."
     />

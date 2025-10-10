@@ -1,7 +1,8 @@
 import { cn } from "@/lib/utils";
+import { Eyebrow } from "./eyebrow";
 
 type SectionHeadingProps = {
-  eyebrow?: string;
+  label?: string;
   title: string;
   description?: string;
   align?: "left" | "center";
@@ -9,7 +10,7 @@ type SectionHeadingProps = {
 };
 
 const SectionHeading = ({
-  eyebrow,
+  label,
   title,
   description,
   align = "left",
@@ -19,15 +20,10 @@ const SectionHeading = ({
     className={cn(
       "space-y-4",
       align === "center" ? "text-center" : "text-left",
-      className,
+      className
     )}
   >
-    {eyebrow ? (
-      <p className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs uppercase tracking-[0.3em] text-muted-foreground">
-        <span className="h-1 w-1 rounded-full bg-highlight" aria-hidden />
-        {eyebrow}
-      </p>
-    ) : null}
+    {label ? <Eyebrow label={label} /> : null}
     <h2 className="font-display text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
       {title}
     </h2>

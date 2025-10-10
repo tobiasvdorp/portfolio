@@ -63,7 +63,7 @@ const Contact = () => {
   return (
     <section id="contact" className="space-y-12">
       <SectionHeading
-        eyebrow="Contact"
+        label="Contact"
         title="Samen iets moois maken?"
         description="Ik reageer meestal binnen een dag. Vul het formulier in of kies één van de socials."
       />

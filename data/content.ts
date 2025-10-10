@@ -1,19 +1,19 @@
 export const heroContent = {
   name: "Tobias van Dorp",
-  role: "Front-end developer & OpenICT student",
+  role: "Passionate front-end developer",
   tagline:
     "Ik ontwerp en bouw toegankelijke digitale ervaringen met Next.js en een flinke dosis nieuwsgierigheid.",
   location: "Maarn, Utrecht, Nederland",
   availability:
     "Beschikbaar voor stage- en freelance-opdrachten vanaf september 2025.",
-  summary:
-    "Ik ben 22 jaar en combineer techniek met creativiteit om interfaces te maken die zowel snel als betekenisvol zijn. Wanneer ik niet aan het coderen ben, vind je me bij mijn hond, vrienden of verdwaald in een goed programmeerartikel.",
-  bio: "Computers fascineren me al zolang ik me kan herinneren. Toch ontdekte ik pas tijdens mijn studie hoeveel plezier ik haal uit het bouwen van digitale producten. Ik experimenteer graag met nieuwe tools, maar verlies nooit de eindgebruiker uit het oog. Buiten het scherm laad ik op door met mijn hond te spelen, tijd met vrienden door te brengen of te verdwalen in video’s over wetenschap en programmeren.",
-  highlights: [
-    "Focus op toegankelijkheid",
-    "Sterke basis in React & Next.js",
-    "Teamspeler met Agile-ervaring",
-  ],
+  // summary:
+  //   "Ik ben 22 jaar en combineer techniek met creativiteit om interfaces te maken die zowel snel als betekenisvol zijn. Wanneer ik niet aan het coderen ben, vind je me bij mijn hond, vrienden of verdwaald in een goed programmeerartikel.",
+  bio: "I'm 22 years old and I've always had an interest in computers, but it wasn't until I started my studies that I realized how much of a nerd I really am. I love combining the technical aspects with creativity to make engaging and functional user interfaces. When I'm not coding, you can usually find me playing with my dog, hanging out with friends or watching science and programming video’s. I'm still exploring my interests, but I'm thrilled to have found a field I'm passionate about.",
+  // highlights: [
+  //   "Focus op toegankelijkheid",
+  //   "Sterke basis in React & Next.js",
+  //   "Teamspeler met Agile-ervaring",
+  // ],
 };
 
 export const personalDetails = [
