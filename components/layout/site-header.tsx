@@ -9,6 +9,7 @@ import {
   useScroll,
   useTransform,
 } from "framer-motion";
+import { ModeToggle } from "@/components/ui/mode-toggle";
 
 const navLinks = [
   { href: "#home", label: "Home" },
@@ -25,7 +26,7 @@ const SiteHeader = () => {
   const backgroundOpacity = useTransform(
     scrollYProgress,
     [0, 0.1],
-    [0.1, 0.92],
+    [0.1, 0.92]
   );
   const backgroundColor = useMotionTemplate`rgba(10, 12, 20, ${backgroundOpacity})`;
 
@@ -51,6 +52,9 @@ const SiteHeader = () => {
               {link.label}
             </Link>
           ))}
+          <div className="ml-2">
+            <ModeToggle />
+          </div>
         </nav>
         <button
           type="button"
@@ -99,6 +103,9 @@ const SiteHeader = () => {
                 {link.label}
               </Link>
             ))}
+            <div className="mt-2 flex justify-center">
+              <ModeToggle />
+            </div>
           </motion.nav>
         ) : null}
       </AnimatePresence>

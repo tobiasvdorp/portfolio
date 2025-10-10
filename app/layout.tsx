@@ -3,6 +3,7 @@ import "./globals2.css";
 import { cn } from "@/lib/utils";
 import SiteHeader from "@/components/layout/site-header";
 import SiteFooter from "@/components/layout/site-footer";
+import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://tobiasvandorp.nl"),
@@ -38,19 +39,28 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => (
     <body
       className={cn("min-h-screen bg-background font-sans text-foreground")}
     >
-      <div className="relative flex min-h-screen flex-col">
-        <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-          <div
-            className="grid-overlay absolute inset-0 opacity-40"
-            aria-hidden="true"
-          />
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
+      >
+        <div className="relative flex min-h-screen flex-col">
+          <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+            <div
+              className="grid-overlay absolute inset-0 opacity-40"
+              aria-hidden="true"
+            />
+          </div>
+          <SiteHeader />
+          <main className="flex-1 px-4 pb-24 pt-24 sm:px-8">
+            <div className="mx-auto w-full max-w-6xl space-y-28">
+              {children}
+            </div>
+          </main>
+          <SiteFooter />
         </div>
-        <SiteHeader />
-        <main className="flex-1 px-4 pb-24 pt-24 sm:px-8">
-          <div className="mx-auto w-full max-w-6xl space-y-28">{children}</div>
-        </main>
-        <SiteFooter />
-      </div>
+      </ThemeProvider>
     </body>
   </html>
 );

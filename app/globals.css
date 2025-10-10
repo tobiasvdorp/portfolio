@@ -1,16 +1,30 @@
-@import "tailwindcss";
+/* @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-background: hsl(230 25% 8%);
-  --color-foreground: hsl(210 20% 98%);
-  --color-muted: hsl(230 20% 18%);
-  --color-muted-foreground: hsl(215 15% 65%);
+  --color-background: hsl(0 0% 100%);
+  --color-foreground: hsl(230 25% 8%);
+  --color-muted: hsl(210 20% 95%);
+  --color-muted-foreground: hsl(215 15% 35%);
   --color-accent: hsl(282 74% 55%);
   --color-accent-foreground: hsl(210 20% 98%);
   --color-highlight: hsl(194 95% 68%);
+
+  @media (prefers-color-scheme: dark) {
+    --color-background: hsl(230 25% 8%);
+    --color-foreground: hsl(210 20% 98%);
+    --color-muted: hsl(230 20% 18%);
+    --color-muted-foreground: hsl(215 15% 65%);
+  }
+
+  .dark {
+    --color-background: hsl(230 25% 8%);
+    --color-foreground: hsl(210 20% 98%);
+    --color-muted: hsl(230 20% 18%);
+    --color-muted-foreground: hsl(215 15% 65%);
+  }
 
   --font-family-sans:
     "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
@@ -21,6 +35,14 @@
 
   --box-shadow-glow: 0 0 35px hsla(282, 74%, 55%, 0.35);
 
+  --background-image-grid: radial-gradient(
+    circle at 1px 1px,
+    rgba(0, 0, 0, 0.1) 1px,
+    transparent 0
+  );
+}
+
+.dark {
   --background-image-grid: radial-gradient(
     circle at 1px 1px,
     rgba(255, 255, 255, 0.1) 1px,
@@ -38,10 +60,25 @@ body {
     ),
     radial-gradient(
       120% 120% at 50% 0%,
+      hsla(0, 0%, 98%, 1) 0%,
+      hsla(0, 0%, 100%, 1) 45%
+    );
+  min-height: 100vh;
+}
+
+.dark body {
+  background-image:
+    radial-gradient(circle at top, hsla(282, 74%, 55%, 0.12), transparent 55%),
+    radial-gradient(
+      circle at bottom,
+      hsla(194, 95%, 68%, 0.1),
+      transparent 65%
+    ),
+    radial-gradient(
+      120% 120% at 50% 0%,
       hsla(230, 25%, 12%, 1) 0%,
       hsla(230, 20%, 6%, 1) 45%
     );
-  min-height: 100vh;
 }
 
 a {
@@ -215,4 +252,4 @@ a:hover {
   body {
     @apply bg-background text-foreground;
   }
-}
+} */
