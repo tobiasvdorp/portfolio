@@ -7,6 +7,7 @@ import SectionHeading from "@/components/ui/section-heading";
 import { Button } from "../ui/button";
 import { projects } from "@/data/content";
 import Link from "next/link";
+import ExpandableCardDemo from "../expandable-card-demo-grid";
 
 const ProjectCard = ({ project }: { project: (typeof projects)[number] }) => (
   <motion.article
@@ -63,11 +64,12 @@ const Projects = () => (
       title="Cases waar ik trots op ben"
       description="Een selectie van projecten waarin ik veel leerde over samenwerking, ontwerp, development en communicatie met opdrachtgevers."
     />
-    <FadeIn className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-      {projects.map((project) => (
+    {/* <FadeIn className="grid gap-6 md:grid-cols-2 xl:grid-cols-3"> */}
+    <ExpandableCardDemo />
+    {/* {projects.map((project) => (
         <ProjectCard key={project.title} project={project} />
-      ))}
-    </FadeIn>
+      ))} */}
+    {/* </FadeIn> */}
   </section>
 );
 

@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import SiteHeader from "@/components/layout/site-header";
 import SiteFooter from "@/components/layout/site-footer";
 import { ThemeProvider } from "@/components/theme-provider";
+import TailwindIndicator from "@/components/tailwind-incidcator";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://tobiasvandorp.nl"),
@@ -60,6 +61,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => (
           </main>
           <SiteFooter />
         </div>
+        <TailwindIndicator />
       </ThemeProvider>
     </body>
   </html>
