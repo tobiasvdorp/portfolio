@@ -6,7 +6,6 @@ import FadeIn from "@/components/motion/fade-in";
 import SectionHeading from "@/components/ui/section-heading";
 import { skills } from "@/data/content";
 import { GlowingCard } from "../ui/glowing-card";
-import { CardSpotlight } from "../ui/card-spotlight";
 import { cn } from "@/lib/utils";
 
 const Skills = () => {
@@ -46,7 +45,7 @@ const Skills = () => {
                         onClick={() => setActiveSkill(skill)}
                         className="relative hover:cursor-pointer"
                       >
-                        <CardSpotlight
+                        <div
                           className={cn(
                             "relative overflow-hidden rounded-2xl border border-white/10 bg-background/60 px-4 py-6 text-left text-sm font-medium text-foreground transition focus:outline-none focus-visible:ring-2 focus-visible:ring-highlight/70",
                             {
@@ -55,7 +54,7 @@ const Skills = () => {
                           )}
                         >
                           <span className="z-10 relative">{skill.name}</span>
-                        </CardSpotlight>
+                        </div>
                       </button>
                     );
                   })}
