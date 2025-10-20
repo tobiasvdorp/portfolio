@@ -48,19 +48,24 @@ const SiteHeader = () => {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-8">
         <div className="min-h-[28px]">
           {showEyebrowInHeader ? (
-            <motion.div
-              layoutId="eyebrow"
-              transition={{
-                type: "spring",
-                stiffness: 500,
-                damping: 40,
-                mass: 0.8,
-              }}
-            >
-              <Link href="#home" className="block">
-                <Eyebrow label={heroContent.eyebrow} variant="bold" size="lg" />
-              </Link>
-            </motion.div>
+            <Link href="#home" className="block">
+              <motion.div
+                layoutId="eyebrow"
+                transition={{
+                  type: "spring",
+                  stiffness: 380,
+                  damping: 32,
+                  mass: 0.8,
+                }}
+              >
+                <Eyebrow
+                  label={heroContent.eyebrow}
+                  variant="bold"
+                  size="lg"
+                  className="bg-background"
+                />
+              </motion.div>
+            </Link>
           ) : (
             <Link
               href="#home"
