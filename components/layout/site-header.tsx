@@ -32,7 +32,7 @@ const SiteHeader = () => {
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-full px-3 py-2 transition hover:bg-white/10 hover:text-foreground"
+              className="rounded-full px-3 py-2 hover:bg-white/10 hover:text-foreground"
             >
               {link.label}
             </Link>
@@ -86,18 +86,15 @@ const SiteHeader = () => {
           hidden: {
             opacity: 0,
             height: 0,
-            transition: {
-              default: { duration: 0 },
-              height: { duration: 0.3 },
-              opacity: { duration: 0.2 },
-            },
+            transition: { duration: 0.1 },
           },
           visible: {
             opacity: 1,
             height: "auto",
             transition: {
-              default: { duration: 0, staggerChildren: 0.1 },
-              height: { duration: 0.3, type: "spring" },
+              staggerChildren: 0.1,
+              duration: 0.3,
+              type: "spring",
             },
             marginBottom: 16,
             padding: 8,
@@ -111,11 +108,11 @@ const SiteHeader = () => {
           <motion.a
             key={link.href}
             variants={{
-              hidden: { opacity: 0 },
-              visible: { opacity: 1 },
+              hidden: { opacity: 0, x: -30 },
+              visible: { opacity: 1, x: 0 },
             }}
             href={link.href}
-            className="rounded-xl px-3 py-2 font-medium transition hover:bg-white/10 hover:text-foreground"
+            className="px-3 py-2 font-medium hover:bg-white/10 hover:text-foreground"
             onClick={() => setIsOpen(false)}
           >
             {link.label}
