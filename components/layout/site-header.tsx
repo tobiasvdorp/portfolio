@@ -37,18 +37,18 @@ const SiteHeader = () => {
               {link.label}
             </Link>
           ))}
-          <div className="ml-2">
-            <ModeToggle />
-          </div>
         </nav>
-        <div className="flex items-center gap-2">
-          <ModeToggle className="md:hidden" />
+
+        <ModeToggle className="hidden md:flex" />
+
+        <div className="flex items-center gap-2 md:hidden">
+          <ModeToggle />
           <Button
             type="button"
             variant="ghost"
             size="icon"
             onClick={() => setIsOpen((prev) => !prev)}
-            className="md:hidden border border-white/20 rounded-full"
+            className="md:hidden rounded-full"
             aria-label="Toggle navigation"
           >
             <span className="sr-only">Menu</span>
