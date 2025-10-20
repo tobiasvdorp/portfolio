@@ -46,21 +46,11 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => (
         enableSystem
         disableTransitionOnChange
       >
-        <div className="relative flex min-h-screen flex-col">
-          <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-            <div
-              className="grid-overlay absolute inset-0 opacity-40"
-              aria-hidden="true"
-            />
-          </div>
-          <SiteHeader />
-          <main className="flex-1 px-4 pb-24 pt-24 sm:px-8">
-            <div className="mx-auto w-full max-w-6xl space-y-28">
-              {children}
-            </div>
-          </main>
-          <SiteFooter />
-        </div>
+        <SiteHeader />
+        <main className="flex-1 px-4 pb-24 pt-24 sm:px-8">
+          <div className="mx-auto w-full max-w-6xl space-y-28">{children}</div>
+        </main>
+        <SiteFooter />
         <TailwindIndicator />
       </ThemeProvider>
     </body>

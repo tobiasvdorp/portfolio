@@ -1,7 +1,7 @@
 import { generateCurrentAge } from "@/lib/utils";
 
 export const heroContent = {
-  eyebrow: "Tobias van Doro",
+  eyebrow: "Tobias van Dorp",
   role: "I'm a passionate front-end developer",
   tagline:
     "I design and build accessible digital experiences with Next.js and a healthy dose of curiosity.",
