@@ -1,8 +1,8 @@
 import { generateCurrentAge } from "@/lib/utils";
 
 export const heroContent = {
-  name: "Tobias van Dorp",
-  role: "Passionate front-end developer",
+  eyebrow: "Tobias van Doro",
+  role: "I'm a passionate front-end developer",
   tagline:
     "I design and build accessible digital experiences with Next.js and a healthy dose of curiosity.",
 };
@@ -16,10 +16,6 @@ export const aboutContent = {
   },
   bio: [
     "I'm 22 years old and I've always had an interest in computers, but it wasn't until I started my studies that I realized how much of a nerd I really am. I love combining the technical aspects with creativity to make engaging and functional user interfaces. When I'm not coding, you can usually find me playing with my dog, hanging out with friends or watching science and programming video’s",
-
-    // "During projects, I love to discover the true needs with stakeholders. Then I translate those insights into clear components, documentation and iterations. I learn quickly, ask a lot of questions and am not afraid to take responsibility.",
-
-    // "I keep myself developing by trying out new tools, reading documentation and following open-source projects. This way, I always bring the latest best practices to my work.",
   ],
 };
 

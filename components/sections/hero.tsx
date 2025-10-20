@@ -23,15 +23,15 @@ const Hero = () => (
       <BackgroundRippleEffect className="z-0 dark:opacity-30 opacity-60" />
 
       <Eyebrow
-        label="Tobias van Dorp"
+        label={heroContent.eyebrow}
         variant="bold"
         className="absolute -top-2 left-10 bg-background"
         size="lg"
       />
-      {/* <div
-      className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,var(--accent),transparent_55%)]"
-      aria-hidden
-    /> */}
+      <div
+        className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,var(--accent),transparent_55%)]"
+        aria-hidden
+      />
       <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <div className="space-y-8">
           <FadeIn delay={0.1}>
@@ -49,10 +49,10 @@ const Hero = () => (
           <FadeIn delay={0.4}>
             <div className="flex flex-wrap gap-3">
               <Button asChild>
-                <Link href="#projects">Bekijk projecten</Link>
+                <Link href="#projects">View projects</Link>
               </Button>
-              <Button asChild variant="ghost">
-                <Link href="#contact">Laten we praten</Link>
+              <Button asChild variant="secondary">
+                <Link href="#contact">Let&apos;s talk</Link>
               </Button>
             </div>
           </FadeIn>
@@ -62,8 +62,8 @@ const Hero = () => (
             <div className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-background/80 p-4 shadow-2xl">
               <div className="rounded-[2rem] bg-black/40 p-2">
                 <Image
-                  src="/images/hoiikbentobias.png"
-                  alt="Portret van Tobias van Dorp"
+                  src="/images/avatar.png"
+                  alt="Portrait"
                   width={512}
                   height={512}
                   className="h-auto w-full rounded-[1.75rem] object-cover"
