@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import {
   AnimatePresence,
@@ -10,6 +10,8 @@ import {
   useTransform,
 } from "framer-motion";
 import { ModeToggle } from "@/components/ui/mode-toggle";
+import { Eyebrow } from "@/components/ui/eyebrow";
+import { heroContent } from "@/data/content";
 
 const navLinks = [
   { href: "#home", label: "Home" },
@@ -30,18 +32,44 @@ const SiteHeader = () => {
   );
   const backgroundColor = useMotionTemplate`rgba(10, 12, 20, ${backgroundOpacity})`;
 
+  const [showEyebrowInHeader, setShowEyebrowInHeader] = useState(false);
+  useEffect(() => {
+    const unsubscribe = scrollYProgress.on("change", (v: number) => {
+      setShowEyebrowInHeader(v > 0.02);
+    });
+    return () => unsubscribe();
+  }, [scrollYProgress]);
+
   return (
     <motion.header
       style={{ backgroundColor }}
       className="fixed inset-x-0 top-0 z-50 border-b border-white/10 backdrop-blur-lg"
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-8">
-        <Link
-          href="#home"
-          className="font-display text-lg font-semibold tracking-tight"
-        >
-          Tobias van Dorp
-        </Link>
+        <div className="min-h-[28px]">
+          {showEyebrowInHeader ? (
+            <motion.div
+              layoutId="eyebrow"
+              transition={{
+                type: "spring",
+                stiffness: 500,
+                damping: 40,
+                mass: 0.8,
+              }}
+            >
+              <Link href="#home" className="block">
+                <Eyebrow label={heroContent.eyebrow} variant="bold" size="lg" />
+              </Link>
+            </motion.div>
+          ) : (
+            <Link
+              href="#home"
+              className="font-display text-lg font-semibold tracking-tight"
+            >
+              Tobias van Dorp
+            </Link>
+          )}
+        </div>
         <nav className="hidden items-center gap-1 text-sm font-medium text-muted-foreground md:flex">
           {navLinks.map((link) => (
             <Link
