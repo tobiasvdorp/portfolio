@@ -7,6 +7,8 @@ import { useOutsideClick } from "@/hooks/use-outside-click";
 import { projects } from "@/data/content";
 import { Link } from "lucide-react";
 import { Button } from "./ui/button";
+import Divider from "./ui/divider";
+import { cn } from "@/lib/utils";
 
 export default function ExpandableCardDemo() {
   const [active, setActive] = useState<
@@ -16,6 +18,7 @@ export default function ExpandableCardDemo() {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    console.log("active", active);
     function onKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
         setActive(false);
@@ -48,7 +51,12 @@ export default function ExpandableCardDemo() {
       </AnimatePresence>
       <AnimatePresence>
         {active && typeof active === "object" ? (
-          <div className="fixed inset-0  grid place-items-center z-[100]">
+          <div
+            className={cn(
+              "fixed inset-0 grid place-items-center z-[100] mb-0"
+              // active !== null && "backdrop-blur-sm" TODO: Add this
+            )}
+          >
             <motion.button
               key={`button-${active.title}-${id}`}
               layout
@@ -72,7 +80,7 @@ export default function ExpandableCardDemo() {
             <motion.div
               layoutId={`card-${active.title}-${id}`}
               ref={ref}
-              className="w-full max-w-[500px]  h-full md:h-fit md:max-h-[90%]  flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
+              className="w-full max-w-xl h-full md:h-fit md:max-h-[90%] flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
             >
               <motion.div layoutId={`image-${active.title}-${id}`}>
                 <Image
@@ -84,24 +92,37 @@ export default function ExpandableCardDemo() {
                 />
               </motion.div>
 
-              <div>
-                <div className="flex justify-between items-start p-4">
+              <div className="p-4 max-h-full">
+                <div className="flex justify-between items-start">
                   <div className="">
                     <motion.h3
                       layoutId={`title-${active.title}-${id}`}
-                      className="font-medium text-neutral-700 dark:text-neutral-200 text-base"
+                      className="text-2xl font-semibold mb-1"
                     >
                       {active.title}
                     </motion.h3>
                     <motion.p
                       layoutId={`description-${active.description}-${id}`}
-                      className="text-neutral-600 dark:text-neutral-400 text-base"
+                      className="text-muted-foreground text-base"
                     >
-                      {active.description}
+                      {active.summary}
                     </motion.p>
                   </div>
+                </div>
 
-                  <Button asChild>
+                <Divider className="my-2" />
+
+                <div className="relative max-h-full">
+                  <motion.div
+                    layout
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="text-muted-foreground text-xs md:text-sm lg:text-base max-h-full md:h-fit pb-10 flex flex-col items-start gap-4 overflow-auto [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
+                  >
+                    {active.description}
+                  </motion.div>
+                  <Button asChild variant="default" className="w-full">
                     <motion.a
                       layout
                       initial={{ opacity: 0 }}
@@ -109,22 +130,11 @@ export default function ExpandableCardDemo() {
                       exit={{ opacity: 0 }}
                       href={active.href}
                       target="_blank"
-                      className="px-4 py-3 text-sm rounded-full font-bold bg-green-500 text-white"
+                      className="view-more-button"
                     >
-                      View project
+                      View
                     </motion.a>
                   </Button>
-                </div>
-                <div className="pt-4 relative px-4">
-                  <motion.div
-                    layout
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    className="text-neutral-600 text-xs md:text-sm lg:text-base h-40 md:h-fit pb-10 flex flex-col items-start gap-4 overflow-auto dark:text-neutral-400 [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
-                  >
-                    {active.description}
-                  </motion.div>
                 </div>
               </div>
             </motion.div>
@@ -137,7 +147,7 @@ export default function ExpandableCardDemo() {
             layoutId={`card-${project.title}-${id}`}
             key={project.title}
             onClick={() => setActive(project)}
-            className="p-4 flex flex-col  hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer"
+            className="p-4 flex flex-col  hover:bg-muted-foreground/10 rounded-xl cursor-pointer"
           >
             <div className="flex gap-4 flex-col  w-full">
               <motion.div layoutId={`image-${project.title}-${id}`}>
@@ -152,13 +162,13 @@ export default function ExpandableCardDemo() {
               <div className="flex justify-center items-center flex-col">
                 <motion.h3
                   layoutId={`title-${project.title}-${id}`}
-                  className="font-medium text-neutral-800 dark:text-neutral-200 text-center md:text-left text-base"
+                  className="font-medium text-foreground text-center md:text-left text-base"
                 >
                   {project.title}
                 </motion.h3>
                 <motion.p
                   layoutId={`summary-${project.summary}-${id}`}
-                  className="text-neutral-600 dark:text-neutral-400 text-center md:text-left text-base"
+                  className="text-muted-foreground text-center md:text-left text-base"
                 >
                   {project.summary}
                 </motion.p>
@@ -203,96 +213,3 @@ export const CloseIcon = () => {
     </motion.svg>
   );
 };
-
-// const projects = [
-//   {
-//     description: "Lana Del Rey",
-//     title: "Summertime Sadness",
-//     src: "https://assets.aceternity.com/demos/lana-del-rey.jpeg",
-//     ctaText: "Visit",
-//     ctaLink: "https://ui.aceternity.com/templates",
-//     content: () => {
-//       return (
-//         <p>
-//           Lana Del Rey, an iconic American singer-songwriter, is celebrated for
-//           her melancholic and cinematic music style. Born Elizabeth Woolridge
-//           Grant in New York City, she has captivated audiences worldwide with
-//           her haunting voice and introspective lyrics. <br /> <br /> Her songs
-//           often explore themes of tragic romance, glamour, and melancholia,
-//           drawing inspiration from both contemporary and vintage pop culture.
-//           With a career that has seen numerous critically acclaimed albums, Lana
-//           Del Rey has established herself as a unique and influential figure in
-//           the music industry, earning a dedicated fan base and numerous
-//           accolades.
-//         </p>
-//       );
-//     },
-//   },
-//   {
-//     description: "Babbu Maan",
-//     title: "Mitran Di Chhatri",
-//     src: "https://assets.aceternity.com/demos/babbu-maan.jpeg",
-//     ctaText: "Visit",
-//     ctaLink: "https://ui.aceternity.com/templates",
-//     content: () => {
-//       return (
-//         <p>
-//           Babu Maan, a legendary Punjabi singer, is renowned for his soulful
-//           voice and profound lyrics that resonate deeply with his audience. Born
-//           in the village of Khant Maanpur in Punjab, India, he has become a
-//           cultural icon in the Punjabi music industry. <br /> <br /> His songs
-//           often reflect the struggles and triumphs of everyday life, capturing
-//           the essence of Punjabi culture and traditions. With a career spanning
-//           over two decades, Babu Maan has released numerous hit albums and
-//           singles that have garnered him a massive fan following both in India
-//           and abroad.
-//         </p>
-//       );
-//     },
-//   },
-
-//   {
-//     description: "Metallica",
-//     title: "For Whom The Bell Tolls",
-//     src: "https://assets.aceternity.com/demos/metallica.jpeg",
-//     ctaText: "Visit",
-//     ctaLink: "https://ui.aceternity.com/templates",
-//     content: () => {
-//       return (
-//         <p>
-//           Metallica, an iconic American heavy metal band, is renowned for their
-//           powerful sound and intense performances that resonate deeply with
-//           their audience. Formed in Los Angeles, California, they have become a
-//           cultural icon in the heavy metal music industry. <br /> <br /> Their
-//           songs often reflect themes of aggression, social issues, and personal
-//           struggles, capturing the essence of the heavy metal genre. With a
-//           career spanning over four decades, Metallica has released numerous hit
-//           albums and singles that have garnered them a massive fan following
-//           both in the United States and abroad.
-//         </p>
-//       );
-//     },
-//   },
-//   {
-//     description: "Lord Himesh",
-//     title: "Aap Ka Suroor",
-//     src: "https://assets.aceternity.com/demos/aap-ka-suroor.jpeg",
-//     ctaText: "Visit",
-//     ctaLink: "https://ui.aceternity.com/templates",
-//     content: () => {
-//       return (
-//         <p>
-//           Himesh Reshammiya, a renowned Indian music composer, singer, and
-//           actor, is celebrated for his distinctive voice and innovative
-//           compositions. Born in Mumbai, India, he has become a prominent figure
-//           in the Bollywood music industry. <br /> <br /> His songs often feature
-//           a blend of contemporary and traditional Indian music, capturing the
-//           essence of modern Bollywood soundtracks. With a career spanning over
-//           two decades, Himesh Reshammiya has released numerous hit albums and
-//           singles that have garnered him a massive fan following both in India
-//           and abroad.
-//         </p>
-//       );
-//     },
-//   },
-// ];

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "./globals2.css";
 import { cn } from "@/lib/utils";
-import SiteHeader from "@/components/layout/site-header";
-import SiteFooter from "@/components/layout/site-footer";
+import Header from "@/components/layout/header";
+import Footer from "@/components/layout/footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import TailwindIndicator from "@/components/tailwind-incidcator";
 
@@ -46,11 +46,13 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => (
         enableSystem
         disableTransitionOnChange
       >
-        <SiteHeader />
+        <Header />
+
         <main className="flex-1 px-4 pb-24 pt-24 sm:px-8">
           <div className="mx-auto w-full max-w-6xl space-y-28">{children}</div>
         </main>
-        <SiteFooter />
+
+        <Footer />
         <TailwindIndicator />
       </ThemeProvider>
     </body>

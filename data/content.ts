@@ -81,35 +81,25 @@ export const projects: Project[] = [
     summary:
       "Mijn eerste portfolio ooit, gebouwd in zes weken zonder voorkennis.",
     description:
-      "Tijdens mijn eerste project bij OpenICT bouwde ik zonder enige programmeerervaring een portfolio. Met YouTube, hulp van medestudenten en veel doorzettingsvermogen wist ik een volledig werkende site neer te zetten.",
+      "Tijdens mijn eerste project bij OpenICT bouwde ik zonder enige programmeerervaring een portfolio. Met YouTube, hulp van medestudenten en veel doorzettingsvermogen wist ik een volledig werkende site neer te zetten. Tijdens mijn eerste project bij OpenICT bouwde ik zonder enige programmeerervaring een portfolio. Met YouTube, hulp van medestudenten en veel doorzettingsvermogen wist ik een volledig werkende site neer te zetten.Tijdens mijn eerste project bij OpenICT bouwde ik zonder enige programmeerervaring een portfolio. Met YouTube, hulp van medestudenten en veel doorzettingsvermogen wist ik een volledig werkende site neer te zetten.Tijdens mijn eerste project bij OpenICT bouwde ik zonder enige programmeerervaring een portfolio. Met YouTube, hulp van medestudenten en veel doorzettingsvermogen wist ik een volledig werkende site neer te zetten.",
     href: "/Portfolio-1.html",
     image: "/images/avatar.png",
     year: "2022",
     type: "School project",
     stack: ["HTML", "CSS"],
   },
-  {
-    title: "Kapsalon Collective",
-    summary:
-      "Een toegankelijke website voor een kapsalon, gebouwd met een multidisciplinair team.",
-    description:
-      "In mijn tweede semester ontwierp en bouwde ik de front-end van een kapsalonwebsite. We werkten met Git, bespraken klantwensen en vertaalden die naar componenten in TailwindCSS.",
-    href: "/hairdresser-project.html",
-    image: "/images/login.png",
-    year: "2023",
-    type: "School project",
-    stack: ["HTML", "CSS", "TailwindCSS"],
-  },
-  {
-    title: "Spark Game Platform",
-    summary: "Website, forum en chatbot voor een educatieve programmeergame.",
-    description:
-      "Voor het project Spark verschoof mijn focus van game-ontwerp naar het ontwikkelen van ondersteunende tooling. Ik bouwde een React-gebaseerde website met forum en chatbot om spelers onderweg te helpen.",
-    image: "/images/spark.png",
-    year: "2023",
-    type: "School project",
-    stack: ["React", "TypeScript"],
-  },
+  // {
+  //   title: "Kapsalon Collective",
+  //   summary:
+  //     "Een toegankelijke website voor een kapsalon, gebouwd met een multidisciplinair team.",
+  //   description:
+  //     "In mijn tweede semester ontwierp en bouwde ik de front-end van een kapsalonwebsite. We werkten met Git, bespraken klantwensen en vertaalden die naar componenten in TailwindCSS.",
+  //   href: "/hairdresser-project.html",
+  //   image: "/images/login.png",
+  //   year: "2023",
+  //   type: "School project",
+  //   stack: ["HTML", "CSS", "TailwindCSS"],
+  // },
   {
     title: "Netwerk USP Inclusief",
     summary:

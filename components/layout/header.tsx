@@ -15,7 +15,7 @@ const navLinks = [
   { href: "#contact", label: "Contact" },
 ];
 
-const SiteHeader = () => {
+const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -123,4 +123,4 @@ const SiteHeader = () => {
   );
 };
 
-export default SiteHeader;
+export default Header;
