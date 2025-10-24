@@ -14,10 +14,9 @@ export default function ExpandableCardDemo() {
     (typeof projects)[number] | boolean | null
   >(null);
   const id = useId();
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement>(null!);
 
   useEffect(() => {
-    console.log("active", active);
     function onKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
         setActive(false);
