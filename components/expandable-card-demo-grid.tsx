@@ -2,10 +2,9 @@
 
 import Image from "next/image";
 import React, { useEffect, useId, useRef, useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 import { projects } from "@/data/content";
-import { Link } from "lucide-react";
 import { Button } from "./ui/button";
 import Divider from "./ui/divider";
 import { cn } from "@/lib/utils";
