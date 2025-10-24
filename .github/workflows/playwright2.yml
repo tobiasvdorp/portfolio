@@ -4,6 +4,7 @@ on:
   repository_dispatch:
     types:
       - "vercel.deployment.success"
+      - "vercel.deployment.ready"
 jobs:
   run-e2es:
     if: github.event_name == 'repository_dispatch'
