@@ -1,39 +1,20 @@
-name: Playwright Tests on Vercel deployment
+name: Playwright Tests on Vercel preview deployment
 
 on:
   repository_dispatch:
     types:
       - "vercel.deployment.success"
-      - "vercel.deployment.ready"
-  pull_request:
-    branches: [main, new-v3]
 jobs:
   run-e2es:
+    if: github.event_name == 'repository_dispatch'
     runs-on: ubuntu-latest
     steps:
-      - name: Debug repository dispatch (if applicable)
-        if: github.event_name == 'repository_dispatch'
-        uses: vercel/repository-dispatch/actions/debug@main
-
-      - name: Checkout code
-        if: github.event_name == 'repository_dispatch'
-        uses: vercel/repository-dispatch/actions/checkout@main
-
-      - name: Checkout code (for PRs)
-        if: github.event_name == 'pull_request'
-        uses: actions/checkout@v4
-
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.client_payload.git.sha }}
       - name: Install dependencies
         run: npm i -g pnpm && pnpm install && pnpx playwright install --with-deps
-
-      - name: Build and start app (for PRs)
-        if: github.event_name == 'pull_request'
-        run: |
-          npm run build
-          npm start &
-          sleep 10
-
       - name: Run tests
-        run: npx playwright test
+        run: pnpx playwright test
         env:
-          BASE_URL: ${{ github.event_name == 'repository_dispatch' && github.event.client_payload.url || 'http://localhost:3000' }}
+          BASE_URL: ${{ github.event.client_payload.url }}
