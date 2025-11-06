@@ -2,7 +2,7 @@ import { generateCurrentAge } from "@/lib/utils";
 
 export const heroContent = {
   eyebrow: "Tobias van Dorp",
-  role: "I'm a passionate front-end developer",
+  role: "Front-end developer",
   tagline:
     "I design and build accessible digital experiences with Next.js and a healthy dose of curiosity.",
 };
@@ -10,7 +10,7 @@ export const heroContent = {
 export const aboutContent = {
   heading: {
     eyebrow: "About me",
-    title: "A creative nerd",
+    title: "About me",
     description:
       "I work closely with the product and team. With a focus on accessibility and performance, I make sure every detail is perfect.",
   },
