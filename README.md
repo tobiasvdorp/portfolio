@@ -1,43 +1,44 @@
-# My Portfolio Website
+# Portfolio Tobias van Dorp
 
-## Overview
+Een moderne, volledig opnieuw opgebouwde portfolio-ervaring met Next.js 15 en TailwindCSS. De applicatie is ontworpen volgens hedendaagse best practices met een focus op performance, toegankelijkheid en onderhoudbaarheid.
 
-This is my portfolio website built with React. The website is bilingual, supporting both English and Dutch.
+## Highlights
 
-## Features
+- **Next.js App Router** met server components waar mogelijk en lichte client componenten voor animaties via Framer Motion.
+- **TailwindCSS design system** met herbruikbare utility classes, gradients en zachte animaties geïnspireerd op [reactbits.dev](https://reactbits.dev/).
+- **Volledig responsive** ontwerp dat schittert op mobiel, tablet en desktop.
+- **Content vanuit één bron** dankzij TypeScript datastructuren voor hero, projecten, skills en contactinformatie.
+- **Contactformulier** gekoppeld aan Formspree met validatie via `react-hook-form`.
 
-- **About Me**: This section provides an overview of my background, experience, and interests.
-- **Projects**: Here, you'll find a list of projects I've completed or contributed to.
-- **Skills**: An interactive folder-like interface showcasing my technical skills.
-- **Contact**: A form for visitors to send me a message.
-- **Secret Feature**: A "nuclear" button that "destroys" and "repairs" the website as an easter egg.
+## Structuur
 
-## Technologies
+```
+app/
+├─ layout.tsx      # Basistemplate met navigatie en footer
+├─ page.tsx        # Pagina die alle secties samenbrengt
+components/
+├─ layout/         # Navigatie en footer
+├─ sections/       # Hero, About, Experience, Projects, Skills, Contact
+├─ ui/             # Herbruikbare UI-elementen (o.a. ShinyButton, SectionHeading)
+├─ motion/         # Animatiehelpers
+└─ icons/          # Light-weight social icons
+```
 
-- React
-- CSS
-- WOW.js and animate.css for animations
+De content zelf wordt beheerd in `data/content.ts`. Op deze manier blijft de UI schoon en kan informatie eenvoudig worden aangepast of uitgebreid.
 
-### Special libraries Used
+## Ontwikkelen
 
 ```bash
-$ npm list
-...
-├── @formspree/react
-├── animate.css
-├── gh-pages
-├── i18next
-├── react-i18next
-├── react-icons
-├── react-type-animation
-├── stylelint-config-standard
-└── wowjs
-...
+pnpm install
+pnpm dev
 ```
-## Contributing
 
-Feel free to clone this repository and use it as a template for your own portfolio website. All I ask is that you give credit and include a link to [tobiasvandorp.nl](https://tobiasvandorp.nl) on your website.
+Bezoek vervolgens `http://localhost:3000` om de applicatie te bekijken. De site kan volledig statisch worden geexporteerd via `pnpm build` en `pnpm start`.
 
-## License
+## Deploy
 
-This project is licensed under the MIT License.
+De site is klaar voor statische hosting (Next.js `output: export`). Alle assets worden geoptimaliseerd en gehost vanuit de `public/` map.
+
+## Licentie
+
+MIT License. Gebruik gerust als inspiratie voor je eigen portfolio en pas het aan naar wens.

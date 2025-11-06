@@ -29,7 +29,7 @@ function callMyAjax(func, appID) {
     var phone = document.getElementById("phone-input").value;
     if (!phone.match(phoneFormat)) {
       alert(
-        "Incorrect telefoonnummer, controleer of het goed is ingevuld. Voorbeeld: 06 12345678"
+        "Incorrect telefoonnummer, controleer of het goed is ingevuld. Voorbeeld: 06 12345678",
       );
       return;
     }
@@ -66,7 +66,7 @@ function callMyAjax(func, appID) {
         "&barber=" +
         barber +
         "&phone=" +
-        phone
+        phone,
     );
   } else if (adjustAppEnabled == true) {
     xhr.send(
@@ -83,7 +83,7 @@ function callMyAjax(func, appID) {
         "&adjustType=" +
         adjustType +
         "&adjustBarber=" +
-        adjustBarber
+        adjustBarber,
     );
   } else {
     xhr.send("date=" + date + "&function=" + func + "&appID=" + appID);
@@ -173,7 +173,7 @@ function newAppointment() {
 function delAppointment(appID) {
   var result = prompt(
     "Weet je zeker dat je deze afspraak wil verwijderen? Dit is permanent, en kan niet ongedaan gemaakt worden! Vul hier 'JA' in om te bevestigen en klik dan op OK.",
-    ""
+    "",
   );
   if (result === "JA") {
     callMyAjax(2, appID);
@@ -197,13 +197,13 @@ function adjustAppointment(appID) {
   var appDate = document.getElementById("date-input").value;
   var appDiv = document.getElementById("appointment-" + appID);
   var appTime = document.getElementById(
-    "appointment-" + appID + "-appTime"
+    "appointment-" + appID + "-appTime",
   ).innerHTML;
   var appBarber = document.getElementById(
-    "appointment-" + appID + "-appBarber"
+    "appointment-" + appID + "-appBarber",
   ).innerHTML;
   var appType = document.getElementById(
-    "appointment-" + appID + "-appType"
+    "appointment-" + appID + "-appType",
   ).innerHTML;
 
   appDiv.innerHTML =
