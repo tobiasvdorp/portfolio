@@ -197,7 +197,7 @@ export const resources = {
       "Bachelor's degree at OpenICT": "Bachelor bij OpenICT",
       "September 2022 - now": "September 2022 - nu",
       openict_description:
-        "Op dit moment zit ik in mijn derde jaar van de studie OpenICT aan de Hogeschool Utrecht. Hier doe ik praktijkervaring op in Agile-methodes, het in kaart brengen van klantvereisten, kennisverwerving en het bepalen van essentiële vaardigheden die nodig zijn om een product te leveren. Wat uniek is aan onze studie is de projectmatige aanpak: we hebben geen traditionele examens of colleges, waardoor we direct kunnen duiken in toepassingen uit de echte wereld. Dit bereidt me uitzonderlijk goed voor op een naadloze overgang naar de bedrijfswereld na mijn afstuderen, aangezien we al de vaardigheden beheersen die in de industrie nodig zijn.",
+        "Op dit moment zit ik in mijn vierde jaar van de studie OpenICT aan de Hogeschool Utrecht. Hier doe ik praktijkervaring op in Agile-methodes, het in kaart brengen van klantvereisten, kennisverwerving en het bepalen van essentiële vaardigheden die nodig zijn om een product te leveren. Wat uniek is aan onze studie is de projectmatige aanpak: we hebben geen traditionele examens of colleges, waardoor we direct kunnen duiken in toepassingen uit de echte wereld. Dit bereidt me uitzonderlijk goed voor op een naadloze overgang naar de bedrijfswereld na mijn afstuderen, aangezien we al de vaardigheden beheersen die in de industrie nodig zijn.",
 
       // Projects
       "Projects.": "Projecten.",
