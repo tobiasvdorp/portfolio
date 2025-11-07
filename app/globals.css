@@ -303,9 +303,9 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 12px 28px;
+  padding: 10px 24px;
   border-radius: 50px;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
   text-decoration: none;
@@ -387,8 +387,13 @@ button {
     width: 100%;
     max-width: 280px;
     justify-content: center;
-    padding: 10px 24px;
-    font-size: 1rem;
+    padding: 8px 18px;
+    font-size: 0.9rem;
+    gap: 8px;
+  }
+
+  .hero-button-icon {
+    font-size: 0.9rem;
   }
 
   .hero-description {
@@ -419,8 +424,13 @@ button {
   }
 
   .hero-button {
-    padding: 8px 20px;
-    font-size: 0.95rem;
+    padding: 6px 16px;
+    font-size: 0.85rem;
+    gap: 6px;
+  }
+
+  .hero-button-icon {
+    font-size: 0.85rem;
   }
 }
 
@@ -761,6 +771,12 @@ body {
   margin: 0 0 0 8px;
   padding: 25px;
 }
+.cbp_tmtimeline li .cbp_tmlabel h3 {
+  text-transform: none;
+}
+.tobias h3 {
+  text-transform: none;
+}
 .cbp_tmtimeline li .cbp_tmlabel h4,
 .tobias h4 {
   opacity: 0.6;
@@ -769,6 +785,7 @@ body {
   line-height: 1.5em;
   font-weight: 600;
   padding: 5px 0 10px;
+  text-transform: none;
 }
 .cbp_tmtimeline > li .cbp_tmlabel h4 i,
 .tobias i {
@@ -1281,7 +1298,6 @@ body {
   margin: 0;
   line-height: 1.5;
   font-family: "Montserrat", sans-serif;
-  text-transform: uppercase;
 }
 
 .card-description {
