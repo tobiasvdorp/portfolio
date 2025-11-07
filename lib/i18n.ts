@@ -20,7 +20,7 @@ export const resources = {
       Explore: "Explore",
       heroDescription:
         "I like crafting beautiful, functional web experiences with code and creativity",
-      viewWork: "View Work",
+      viewWork: "View work",
       scroll: "Scroll",
 
       // Aboutme
