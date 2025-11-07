@@ -111,6 +111,7 @@ const SkillFolder = () => {
       <h3 className="readmore">{t("skills_under")}</h3>
       <div className="skill-folder-container">
         <div className="folder">
+          <div className="folder-glow"></div>
           <div className="skills-column">
             <ul>
               {skills.map((skill) => (

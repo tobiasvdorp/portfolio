@@ -1296,68 +1296,151 @@ body {
     padding: 0 8px;
   }
 }
+.contact {
+  margin: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-form-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  background: linear-gradient(
+    135deg,
+    rgba(143, 180, 255, 0.1) 0%,
+    rgba(3, 63, 63, 0.3) 100%
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(143, 180, 255, 0.2);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(143, 180, 255, 0.1) inset;
+  padding: 40px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact-form-container:hover {
+  box-shadow:
+    0 12px 36px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(143, 180, 255, 0.2) inset;
+  border-color: rgba(143, 180, 255, 0.3);
+}
+
+.contact-form-container:hover .contact-form-glow {
+  opacity: 0.5;
+}
+
+.contact-form-glow {
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(143, 180, 255, 0.1) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
 .contact form,
 .contact form div {
   flex-direction: column;
   display: flex;
 }
+
 .contact form {
   justify-content: center;
-  gap: 20px;
-  max-width: 550px;
+  gap: 24px;
   width: 100%;
   transition: 0.5s;
+  position: relative;
+  z-index: 1;
 }
-.contact {
-  margin: 0 20px;
-}
+
 .contact form div {
   justify-content: center;
 }
+
+.contact label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: "Montserrat", sans-serif;
+}
+
+.contact form input,
+.contact form textarea {
+  margin-top: 0;
+  height: 48px;
+  background: rgba(143, 180, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border-radius: 12px;
+  padding: 0 16px;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(143, 180, 255, 0.2);
+  font-family: "Montserrat", sans-serif;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact form input::placeholder,
+.contact form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.contact form input:focus,
+.contact form textarea:focus {
+  outline: 0;
+  background: rgba(143, 180, 255, 0.15);
+  border-color: rgba(143, 180, 255, 0.4);
+  box-shadow: 0 0 0 3px rgba(143, 180, 255, 0.1);
+}
+
+.contact form textarea {
+  min-height: 140px;
+  min-width: 100%;
+  padding: 16px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
 .contact form button {
   font-size: 1.2rem;
   padding: 10px 25px;
   border: none;
 }
+
 #senddiv,
-.contact,
 .statusdiv {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.contact form input,
-.contact form textarea {
-  margin-top: 5px;
-  height: 40px;
-  background-color: var(--secondary);
-  border-radius: 5px;
-  padding: 0 10px;
-  font-size: 1rem;
-  color: var(--primary);
-  border: 2px solid var(--accent);
-  font-family: "Montserrat", sans-serif;
-}
-.contact form input:focus,
-.contact form textarea:focus {
-  outline: 0;
-  box-shadow: 0 0 10px 1px var(--accent);
-}
-.contact form textarea {
-  min-height: 120px;
-  min-width: 100%;
-  padding: 10px;
-}
-.contact label {
-  font-weight: 600;
-}
+
 .status {
-  padding: 10px 20px;
-  border-radius: 5px;
+  padding: 12px 24px;
+  border-radius: 12px;
   font-weight: 500;
   color: #fff;
-  background-color: var(--secondary);
+  background: linear-gradient(
+    135deg,
+    rgba(143, 180, 255, 0.2) 0%,
+    rgba(3, 63, 63, 0.4) 100%
+  );
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(143, 180, 255, 0.3);
+  box-shadow: 0 4px 16px rgba(143, 180, 255, 0.2);
 }
 .disordered.message label,
 .disordered.message textarea,
@@ -2189,9 +2272,45 @@ body {
   align-items: center;
   gap: 10px;
 }
-@media only screen and (min-width: 475px) {
+@media screen and (max-width: 768px) {
   .contact {
-    margin: 0 50px !important;
+    margin: 0 10px;
+  }
+
+  .contact-form-container {
+    padding: 32px 24px;
+    border-radius: 16px;
+  }
+
+  .contact form {
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .contact {
+    margin: 0 8px;
+  }
+
+  .contact-form-container {
+    padding: 24px 16px;
+  }
+
+  .contact form input,
+  .contact form textarea {
+    height: 44px;
+    padding: 0 12px;
+    font-size: 0.95rem;
+  }
+
+  .contact form textarea {
+    padding: 12px;
+    min-height: 120px;
+  }
+
+  .contact form button {
+    font-size: 1.1rem;
+    padding: 12px 24px;
   }
 }
 @media only screen and (max-width: 767px) {
@@ -2223,27 +2342,6 @@ body {
     left: 10px;
   }
 }
-.skill,
-.skill img,
-.skills {
-  padding: 10px;
-}
-#select-skill,
-.skills-description h3 {
-  color: var(--primary);
-  font-size: 1.2em;
-}
-#select-skill,
-.skills-description h3,
-li.skill {
-  font-weight: 600;
-  font-family: "Montserrat", sans-serif;
-}
-
-.skills-description h3 {
-  font-weight: 900;
-  text-transform: uppercase;
-}
 .skills {
   color: #fff;
 }
@@ -2252,119 +2350,233 @@ li.skill {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 0 20px;
 }
+
 .folder {
+  position: relative;
   width: 90%;
-  max-width: 800px;
-  background: var(--secondary);
-  border-radius: 10px;
-  border: 1px solid var(--accent);
-  box-shadow: 0 0 10px 1px var(--accent);
+  max-width: 900px;
+  background: linear-gradient(
+    135deg,
+    rgba(143, 180, 255, 0.1) 0%,
+    rgba(3, 63, 63, 0.3) 100%
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(143, 180, 255, 0.2);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(143, 180, 255, 0.1) inset;
   display: flex;
   flex-direction: row;
   overflow: hidden;
-  margin: 0 10vw;
+  margin: 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.folder:hover {
+  box-shadow:
+    0 12px 36px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(143, 180, 255, 0.2) inset;
+  border-color: rgba(143, 180, 255, 0.3);
+}
+
+.folder:hover .folder-glow {
+  opacity: 0.5;
+}
+
+.folder-glow {
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(143, 180, 255, 0.1) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
 .skills-column {
   width: 40%;
   min-width: 180px;
+  padding: 20px 0;
 }
+
 .skill img {
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   object-fit: contain;
+  transition: transform 0.3s ease;
 }
+
 .skill {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  transition: 0.3s ease-in-out;
-}
-li.skill {
-  border-radius: 4px;
-}
-li.skill.active,
-li.skill:hover {
-  background: var(--primary);
-  color: var(--secondary);
+  gap: 12px;
+  padding: 12px 16px;
+  margin: 4px 8px;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
-  transform: scale(1.05);
+  background: rgba(143, 180, 255, 0.05);
+  border: 1px solid rgba(143, 180, 255, 0.1);
 }
+
+li.skill {
+  border-radius: 12px;
+}
+
+li.skill:hover {
+  background: rgba(143, 180, 255, 0.15);
+  border-color: rgba(143, 180, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(143, 180, 255, 0.2);
+}
+
+li.skill:hover .skill img {
+  transform: scale(1.1);
+}
+
 li.skill.active {
-  transform: none;
+  background: rgba(143, 180, 255, 0.2);
+  border-color: rgba(143, 180, 255, 0.4);
+  box-shadow: 0 4px 16px rgba(143, 180, 255, 0.3);
+  color: var(--text);
 }
+
 .skills-divider {
   width: 1px;
-  background-color: var(--accent);
-  box-shadow: 0 0 8px 1px var(--accent);
-  margin: 10px 0;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(143, 180, 255, 0.3) 20%,
+    rgba(143, 180, 255, 0.5) 50%,
+    rgba(143, 180, 255, 0.3) 80%,
+    transparent 100%
+  );
+  margin: 20px 0;
+  box-shadow: 0 0 8px rgba(143, 180, 255, 0.2);
 }
+
 .skills-description {
-  padding: 30px;
+  padding: 32px;
   width: 60%;
   overflow: hidden;
+  background: rgba(0, 0, 0, 0.05);
 }
+
 .skills-description h3 {
-  margin-bottom: 5px;
+  margin-bottom: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  background: linear-gradient(
+    135deg,
+    var(--text) 0%,
+    rgba(143, 180, 255, 0.8) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
+
 .skills-description span {
   margin-bottom: 20px;
   font-size: 1em;
-  color: #fff !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  line-height: 1.8;
 }
+
 .skills-column ul {
-  padding: 5px 8px 5px 5px;
+  padding: 8px;
+  list-style: none;
 }
+
 #whatisit {
   padding-bottom: 50px;
 }
-.skills .readmore {
-  color: #000;
-}
-body[data-theme="dark"] .skills .readmore {
-  color: #fff !important;
+
+#select-skill {
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
 }
 @media screen and (max-width: 800px) {
+  .skill-folder-container {
+    padding: 0 10px;
+  }
+
   .folder {
-    margin: 0 20px;
+    margin: 0;
+    width: 95%;
   }
 }
+
 @media screen and (max-width: 600px) {
   .folder {
     flex-direction: column;
     align-items: center;
     text-align: left;
+    border-radius: 16px;
   }
+
   .skills-divider {
     width: 100%;
     height: 1px;
+    margin: 0;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(143, 180, 255, 0.3) 20%,
+      rgba(143, 180, 255, 0.5) 50%,
+      rgba(143, 180, 255, 0.3) 80%,
+      transparent 100%
+    );
   }
+
   .skills-column,
   .skills-description {
     width: 100%;
   }
-  .skills-column ul {
-    padding: 5px;
+
+  .skills-column {
+    padding: 16px 0;
   }
+
+  .skills-column ul {
+    padding: 8px;
+  }
+
+  .skills-description {
+    padding: 24px 20px;
+  }
+
   .skills-description p {
     margin-bottom: 10px;
   }
-  .skills-description {
-    padding: 5px 20px 15px;
-  }
+
   #select-skill {
     margin: 0;
   }
+
   .skill {
-    padding: 5px 10px;
+    padding: 10px 12px;
+    margin: 4px;
   }
+
   .skill img {
     width: 40px;
     height: 40px;
   }
+
   #whatisit {
-    padding-bottom: 10px;
+    padding-bottom: 30px;
   }
 }
 #socials {

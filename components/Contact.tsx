@@ -68,7 +68,9 @@ const Contact = () => {
         </button>
       </div>
       <h3 className="readmore">{t("friendRequestAccepted")}</h3>
-      <form onSubmit={handleSubmit}>
+      <div className="contact-form-container">
+        <div className="contact-form-glow"></div>
+        <form onSubmit={handleSubmit}>
         <div
           className={`name animate__animated ${disorderedClass} ${isDisordered ? "animate__slower" : ""}`}
         >
@@ -110,8 +112,9 @@ const Contact = () => {
               {status}
             </p>
           )}
-        </div>
-      </form>
+          </div>
+        </form>
+      </div>
       <h3 className="readmore" id="findme">
         {t("orFindMeOn")}
       </h3>
