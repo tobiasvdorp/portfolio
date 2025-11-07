@@ -1,8 +1,10 @@
-'use client';
+"use client";
 
-import Image, { type StaticImageData } from 'next/image';
-import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import Image, { type StaticImageData } from "next/image";
+import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import { createPortal } from "react-dom";
+import { FaTimes, FaExternalLinkAlt } from "react-icons/fa";
 
 export type ProjectSkill = {
   name: string;
@@ -32,59 +34,116 @@ const Card = ({
 }: CardProps) => {
   const { t } = useTranslation();
   const [isExpanded, setIsExpanded] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleCardClick = () => {
     if (!isExpanded) {
       setIsExpanded(true);
+      document.body.style.overflow = "hidden";
     }
   };
 
-  const handleCloseClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleCloseClick = (event: React.MouseEvent) => {
     event.stopPropagation();
     setIsExpanded(false);
+    document.body.style.overflow = "";
   };
 
-  const openProject = () => {
-    if (typeof window === 'undefined') {
-      return;
-    }
-    window.open(projectLocation, '_blank', 'noopener,noreferrer');
-  };
+  const modalContent = isExpanded && (
+    <>
+      <div className="card-modal-backdrop" onClick={handleCloseClick} />
+      <div className="card-modal">
+        <button
+          className="modal-close"
+          onClick={handleCloseClick}
+          type="button"
+          aria-label="Close"
+        >
+          <FaTimes />
+        </button>
+        <div className="modal-image">
+          <Image
+            src={imageSrc}
+            alt={title}
+            fill
+            className="modal-image-content"
+            sizes="(max-width: 768px) 100vw, 600px"
+          />
+        </div>
+        <div className="modal-content">
+          <h2 className="modal-title">{title}</h2>
+          <p className="modal-description">{detailDescription}</p>
+          <div className="modal-skills-section">
+            <p className="modal-skills-label">{t("technologies")}</p>
+            <div className="modal-skills">
+              {skills.map((skill) => (
+                <div className="modal-skill" key={skill.name}>
+                  <Image
+                    src={skill.image}
+                    alt={skill.name}
+                    width={28}
+                    height={28}
+                  />
+                  <span>{skill.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <a
+            className="button button-small"
+            href={projectLocation}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>{t("See the result")}</span>
+            <FaExternalLinkAlt size={16} />
+          </a>
+        </div>
+      </div>
+    </>
+  );
 
   return (
-    <div className={`card ${isExpanded ? 'expanded' : ''} wow ${className}`} data-wow-delay={wowDelay} onClick={handleCardClick}>
-      <div className="front-card">
-        <Image src={imageSrc} alt={title} sizes="(max-width: 768px) 100vw, 33vw" />
-        <h3>{title}</h3>
-        <hr />
-        <div className="cardtekst">
-          <p>{description}</p>
-        </div>
-        <hr />
-      </div>
-
-      <div className="project-skills">
-        {skills.map((skill) => (
-          <div className="skill-tooltip" key={skill.name}>
-            <Image src={skill.image} alt={skill.name} width={48} height={48} />
-            <span className="tooltip-text">{skill.name}</span>
+    <>
+      <div
+        className={`project-card wow ${className}`}
+        data-wow-delay={wowDelay}
+      >
+        <article className="card-content" onClick={handleCardClick}>
+          <div className="card-image-container">
+            <Image
+              src={imageSrc}
+              alt={title}
+              fill
+              className="card-image"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
           </div>
-        ))}
+          <div className="card-body">
+            <h3 className="card-title">{title}</h3>
+            <p className="card-description">{description}</p>
+            <div className="card-skills">
+              {skills.map((skill) => (
+                <div className="skill-tooltip" key={skill.name}>
+                  <Image
+                    src={skill.image}
+                    alt={skill.name}
+                    width={32}
+                    height={32}
+                  />
+                  <span className="tooltip-text">{skill.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </article>
       </div>
-
-      <div className="project-details">
-        <div className="close">
-          <button className="close-button button" onClick={handleCloseClick} type="button">
-            X
-          </button>
-        </div>
-        <h3>{title}</h3>
-        <p>{detailDescription}</p>
-        <button className="button result" onClick={openProject} type="button">
-          {t('See the result')} <i className="fa-solid fa-eye" />
-        </button>
-      </div>
-    </div>
+      {mounted && isExpanded && createPortal(modalContent, document.body)}
+    </>
   );
 };
 

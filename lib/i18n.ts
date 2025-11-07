@@ -26,6 +26,8 @@ export const resources = {
       aboutme_description:
         "I'm 22 years old and I've always had an interest in computers, but it wasn't until I started my studies that I realized how much of a nerd I really am. I love combining the technical aspects with creativity to make engaging and functional user interfaces. When I'm not coding, you can usually find me playing with my dog, hanging out with friends or watching science and programming video’s. I'm still exploring my interests, but I'm thrilled to have found a field I'm passionate about.",
 
+      // Technologies
+      technologies: "Technologies",
       // Carreer
       "My carreer": "My carreer",
       "Experience points accumulating...": "Experience points accumulating...",
@@ -76,11 +78,11 @@ export const resources = {
         "My first project for a real client was building an accessible website for Netwerk USP Inclusief (nUSPi), an organization that champions inclusivity. Initially brought on board through a student opportunity at the HU Institute of ICT, I had the unique challenge of translating the organization's mission into a digital platform that could be easily accessed by everyone. Over a series of MS Teams meetings, I learned a lot about client communication—how to effectively listen, condense their requirements, and provide actionable feedback. One key learning area for me was web accessibility. Given nUSPi's focus on inclusivity, I learned about and implemented web standards that would make our digital platform accessible to as many people as possible. After successfully building the website, I prepared a comprehensive handover document containing specific instructions for managing the platform. This empowered the client, nUSPi, to take full ownership and maintain the site independently.",
 
       // Project 5
-      project5_title: "Website Judith",
+      project5_title: "Coaching website",
       project5_description:
         "A user-friendly, fast-performing website built with NextJS and Builder.io for easy content management.",
       project5_detailDescription:
-        "For my mother, I developed a website using NextJS and Builder.io as the CMS. Lacking technical knowledge, she placed high value on a website that was easy to manage, loaded quickly, and was SEO-friendly. Throughout this project, I gained extensive knowledge on combining Builder.io with NextJS, creating and managing content models, and building reusable components. The result is a website that meets my mother's needs and that she can manage independently without my assistance. Additionally, the website scores very high in terms of loading time, performance, and accessibility. You can view the result by clicking the button below. At the moment my mother is still working on the content, so the website is not yet live.",
+        "For someone in my family, I developed a website using NextJS and Builder.io as the CMS. Lacking technical knowledge, they placed high value on a website that was easy to manage, loaded quickly, and was SEO-friendly. Throughout this project, I gained extensive knowledge on combining Builder.io with NextJS, creating and managing content models, and building reusable components. The result is a website that meets my family member's needs and that they can manage independently without my assistance. Additionally, the website scores very high in terms of loading time, performance, and accessibility. You can view the result by clicking the button below. At the moment my family member is still working on the content, so the website is not yet live.",
 
       // Skills
       skills_title: "Skills.",
@@ -203,6 +205,9 @@ export const resources = {
       "Projects.": "Projecten.",
       "Click on a card to read more.": "Klik op een kaart om meer te lezen.",
 
+      // Technologies
+      technologies: "Technologieën",
+
       // Filters
       all: "Alle",
       work: "Werk",
@@ -234,17 +239,17 @@ export const resources = {
       project3_detailDescription: `Mijn derde project was 'Spark', een boeiend spel dat is ontworpen om gebruikers de basisprincipes van programmeren op een leuke manier te leren. Aanvankelijk was mijn taak het ontwerpen van de gebruikersinterface van het spel. Ik kwam er echter al snel achter dat game-ontwikkeling niet mijn voorkeursgebied was. Daarom heb ik me gericht op het bouwen van de website van het spel, samen met een teamlid. Deze onderneming leidde me tot de constructie van een forum en een chatbot, beide geïmplementeerd met React.`,
 
       // Project 4
-      project4_title: "NetworkUSP Inclusief",
+      project4_title: "NetwerkUSP Inclusief",
       project4_description:
         "Ik heb een toegankelijke website gebouwd voor een netwerk en belangrijke ervaring opgedaan in klantcommunicatie.",
       project4_detailDescription: `Mijn eerste project voor een echte klant was het bouwen van een toegankelijke website voor Netwerk USP Inclusief (nUSPi), een organisatie die zich inzet voor inclusiviteit op het Utrecht Science Park. Ik ben met hen in contact gekomen via een oproep in het ICT-kanaal op Discord en ik had de unieke uitdaging om de missie van de organisatie te vertalen naar een digitaal platform dat door iedereen gemakkelijk kon worden gebruikt. In een reeks Teams-vergaderingen heb ik veel geleerd over klantcommunicatie - hoe ik effectief kan luisteren, hun vereisten kan samenvatten en bruikbare feedback kan geven. Een belangrijk leergebied voor mij was webtoegankelijkheid. Gezien de focus van nUSPi op inclusiviteit, heb ik webstandaarden geleerd en geïmplementeerd die ons digitale platform toegankelijk zouden maken voor zoveel mogelijk mensen. Nadat ik de website met succes had gebouwd, heb ik een uitgebreid overdrachtsdocument opgesteld met specifieke instructies voor het beheren van het platform. Dit stelde de klant, nUSPi, in staat om het platform volledig in eigen beheer te nemen en onafhankelijk te onderhouden.`,
 
       // Project 5
-      project5_title: "Website Judith",
+      project5_title: "Coaching website",
       project5_description:
         "Een gebruiksvriendelijke en snel presterende website gebouwd met NextJS en Builder.io voor eenvoudige contentbeheer.",
       project5_detailDescription:
-        "Voor mijn moeder heb ik een website ontwikkeld met NextJS en Builder.io als CMS. Omdat ze zelf geen technische kennis heeft, hechtte ze veel waarde aan een website die eenvoudig te beheren is, snel laadt en SEO-vriendelijk is. Gedurende dit project heb ik uitgebreide kennis opgedaan over het combineren van Builder.io met NextJS, het creëren en beheren van contentmodellen, en het bouwen van herbruikbare componenten. Het resultaat is een website die voldoet aan de wensen van mijn moeder en die ze zelf kan beheren zonder mijn hulp. Ook scoort de website heel hoog wat betreft laadtijd, prestaties en toegankelijkheid. Je kunt het resultaat bekijken door op de knop hieronder te klikken. Op dit moment is mijn moeder nog bezig met de content, dus de website is nog niet live.",
+        "Voor een kennis heb ik een website ontwikkeld met NextJS en Builder.io als CMS. Omdat ze zelf geen technische kennis heeft, hechtte ze veel waarde aan een website die eenvoudig te beheren is, snel laadt en SEO-vriendelijk is. Gedurende dit project heb ik uitgebreide kennis opgedaan over het combineren van Builder.io met NextJS, het creëren en beheren van contentmodellen, en het bouwen van herbruikbare componenten. Het resultaat is een website die voldoet aan de wensen van mijn kennis en die ze zelf kan beheren zonder mijn hulp. Ook scoort de website heel hoog wat betreft laadtijd, prestaties en toegankelijkheid. Je kunt het resultaat bekijken door op de knop hieronder te klikken. Op dit moment is mijn kennis nog bezig met de content, dus de website is nog niet live.",
 
       // SKILLS
       skills_title: "Vaardigheden.",
