@@ -13,7 +13,7 @@ export type ProjectSkill = {
 
 type CardProps = {
   title: string;
-  imageSrc: StaticImageData;
+  imageSrc: string;
   description: string;
   skills: ProjectSkill[];
   detailDescription: string;
@@ -140,6 +140,7 @@ const Card = ({
               ))}
             </div>
           </div>
+          <div className="card-glow"></div>
         </article>
       </div>
       {mounted && isExpanded && createPortal(modalContent, document.body)}

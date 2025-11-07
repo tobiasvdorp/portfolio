@@ -81,18 +81,22 @@ button {
   color: var(--accent);
 }
 
-/* Global Glow Effect - Works on entire page */
-.global-glow {
+/* Subtle Cursor Follower */
+.cursor-follower {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  opacity: 0.06;
-  z-index: 0;
-  transition: background 0.3s ease;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+  opacity: 0.3;
+  transform: translate(-50%, -50%);
   pointer-events: none;
-  will-change: background;
+  z-index: 9999;
+  transition:
+    opacity 0.2s ease,
+    transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  mix-blend-mode: screen;
+  will-change: transform;
 }
 
 /* Modern Hero Section */
@@ -924,12 +928,6 @@ body {
   box-shadow: 0 0 20px rgba(143, 180, 255, 0.3);
 }
 
-@media screen and (max-width: 768px) {
-  .timeline-line {
-    left: 30px;
-  }
-}
-
 .cbp_tmtimeline {
   max-width: 1200px;
   padding: 0;
@@ -957,14 +955,6 @@ body {
   flex-direction: row-reverse;
 }
 
-@media screen and (max-width: 768px) {
-  .timeline-item,
-  .timeline-item:nth-child(even) {
-    flex-direction: row;
-    padding-left: 60px;
-  }
-}
-
 .timeline-marker {
   position: relative;
   flex-shrink: 0;
@@ -974,13 +964,6 @@ body {
   align-items: center;
   justify-content: center;
   z-index: 2;
-}
-
-@media screen and (max-width: 768px) {
-  .timeline-marker {
-    position: absolute;
-    left: 0;
-  }
 }
 
 .timeline-dot {
@@ -1164,13 +1147,23 @@ body {
 }
 
 @media screen and (max-width: 768px) {
+  .sectionClass {
+    padding: 40px 10px;
+  }
+
   .row {
     gap: 60px;
+  }
+
+  .about-me-card {
+    margin: 0 10px;
+    border-radius: 16px;
   }
 
   .about-me-card-header {
     flex-direction: column;
     gap: 20px;
+    padding: 24px 20px 16px;
   }
 
   .about-me-icon-wrapper {
@@ -1181,8 +1174,126 @@ body {
     justify-content: center;
   }
 
+  .about-me-card-body {
+    padding: 24px 20px;
+  }
+
+  .timeline-line {
+    left: 20px;
+    width: 3px;
+  }
+
+  .timeline-item,
+  .timeline-item:nth-child(even) {
+    flex-direction: row;
+    padding-left: 45px;
+    gap: 15px;
+  }
+
+  .timeline-marker {
+    position: absolute;
+    left: 0;
+    width: 40px;
+    height: 40px;
+  }
+
+  .timeline-dot {
+    width: 16px;
+    height: 16px;
+    box-shadow:
+      0 0 0 4px rgba(143, 180, 255, 0.2),
+      0 0 0 8px rgba(143, 180, 255, 0.1),
+      0 2px 8px rgba(143, 180, 255, 0.4);
+  }
+
+  .timeline-pulse {
+    width: 16px;
+    height: 16px;
+  }
+
   .timeline-card {
     max-width: 100%;
+    border-radius: 16px;
+  }
+
+  .timeline-card-header {
+    padding: 20px 20px 12px;
+  }
+
+  .timeline-card-body {
+    padding: 20px;
+  }
+
+  .mycarreer {
+    padding: 0 10px;
+  }
+
+  .timeline-container {
+    padding: 30px 0;
+  }
+
+  .cbp_tmtimeline {
+    gap: 30px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .sectionClass {
+    padding: 30px 8px;
+  }
+
+  .about-me-card {
+    margin: 0 8px;
+  }
+
+  .about-me-card-header {
+    padding: 20px 16px 12px;
+  }
+
+  .about-me-card-body {
+    padding: 20px 16px;
+  }
+
+  .timeline-line {
+    left: 16px;
+    width: 2px;
+  }
+
+  .timeline-item,
+  .timeline-item:nth-child(even) {
+    padding-left: 38px;
+    gap: 12px;
+  }
+
+  .timeline-marker {
+    width: 32px;
+    height: 32px;
+  }
+
+  .timeline-dot {
+    width: 12px;
+    height: 12px;
+    box-shadow:
+      0 0 0 3px rgba(143, 180, 255, 0.2),
+      0 0 0 6px rgba(143, 180, 255, 0.1),
+      0 2px 6px rgba(143, 180, 255, 0.4);
+  }
+
+  .timeline-pulse {
+    width: 12px;
+    height: 12px;
+  }
+
+  .timeline-card-header {
+    padding: 16px 16px 10px;
+  }
+
+  .timeline-card-body {
+    padding: 16px;
+  }
+
+  .mycarreer {
+    padding: 0 8px;
   }
 }
 .contact form,
@@ -1600,22 +1711,35 @@ body {
 
 /* Card Content */
 .card-content {
-  background: var(--secondary);
-  border-radius: 12px;
-  overflow: visible;
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    rgba(143, 180, 255, 0.1) 0%,
+    rgba(3, 63, 63, 0.3) 100%
+  );
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  overflow: hidden;
   cursor: pointer;
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
   height: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(143, 180, 255, 0.2);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(143, 180, 255, 0.1) inset;
 }
 
 .card-content:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 12px 36px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(143, 180, 255, 0.2) inset;
+  border-color: rgba(143, 180, 255, 0.3);
+}
+
+.card-content:hover .card-glow {
+  opacity: 0.5;
 }
 
 .card-image-container {
@@ -1624,7 +1748,7 @@ body {
   height: 200px;
   overflow: hidden;
   background: var(--primary);
-  border-radius: 12px 12px 0 0;
+  border-radius: 20px 20px 0 0;
   flex-shrink: 0;
 }
 
@@ -1638,28 +1762,35 @@ body {
 }
 
 .card-body {
-  padding: 20px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
   gap: 12px;
   flex: 1;
   overflow: visible;
-  border-radius: 0 0 12px 12px;
+  border-radius: 0 0 20px 20px;
 }
 
 .card-title {
   font-size: 1.25rem;
-  font-weight: 900;
-  color: #fff;
+  font-weight: 800;
   margin: 0;
   line-height: 1.5;
   font-family: "Montserrat", sans-serif;
+  background: linear-gradient(
+    135deg,
+    var(--text) 0%,
+    rgba(143, 180, 255, 0.8) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .card-description {
   font-size: 0.95rem;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.9);
   font-family: "Montserrat", sans-serif;
   margin: 0;
   flex: 1;
@@ -1678,17 +1809,16 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.1);
-  transition:
-    transform 0.2s ease,
-    background 0.2s ease;
+  border-radius: 8px;
+  background: rgba(143, 180, 255, 0.1);
+  border: 1px solid rgba(143, 180, 255, 0.2);
+  transition: all 0.3s ease;
   position: relative;
 }
 
 .card-skills .skill-tooltip:hover {
-  transform: scale(1.1);
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(143, 180, 255, 0.2);
+  border-color: rgba(143, 180, 255, 0.3);
 }
 
 .card-skills .skill-tooltip img {
@@ -1697,14 +1827,36 @@ body {
   object-fit: contain;
 }
 
+.card-glow {
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(143, 180, 255, 0.1) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
 /* Modal View */
 .card-modal {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: var(--secondary);
-  border-radius: 16px;
+  background: linear-gradient(
+    135deg,
+    rgba(143, 180, 255, 0.25) 0%,
+    rgba(3, 63, 63, 0.6) 100%
+  );
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 24px;
   max-width: 900px;
   width: calc(100% - 40px);
   max-height: calc(100vh - 40px);
@@ -1715,7 +1867,10 @@ body {
   grid-template-rows: 1fr;
   gap: 0;
   animation: slideUp 0.3s ease;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(143, 180, 255, 0.2) inset;
+  border: 1px solid rgba(143, 180, 255, 0.3);
 }
 
 @keyframes slideUp {
@@ -1736,8 +1891,8 @@ body {
   width: 36px;
   height: 36px;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.1);
-  border: none;
+  background: rgba(143, 180, 255, 0.1);
+  border: 1px solid rgba(143, 180, 255, 0.2);
   color: #fff;
   cursor: pointer;
   display: flex;
@@ -1745,11 +1900,12 @@ body {
   justify-content: center;
   font-size: 1rem;
   z-index: 10;
-  transition: background 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .modal-close:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(143, 180, 255, 0.2);
+  border-color: rgba(143, 180, 255, 0.3);
 }
 
 .modal-image {
@@ -1772,22 +1928,31 @@ body {
   gap: 20px;
   overflow-y: auto;
   max-height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 0 24px 24px 0;
 }
 
 .modal-title {
   font-size: 1.75rem;
-  font-weight: 900;
-  color: #fff;
+  font-weight: 800;
   margin: 0;
   line-height: 1.4;
   font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
+  background: linear-gradient(
+    135deg,
+    var(--text) 0%,
+    rgba(143, 180, 255, 0.8) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .modal-description {
   font-size: 1rem;
   line-height: 1.8;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.95);
   font-family: "Montserrat", sans-serif;
   margin: 0;
 }
@@ -1816,17 +1981,15 @@ body {
   align-items: center;
   gap: 8px;
   padding: 8px 12px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(143, 180, 255, 0.1);
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition:
-    background 0.2s ease,
-    border-color 0.2s ease;
+  border: 1px solid rgba(143, 180, 255, 0.2);
+  transition: all 0.3s ease;
 }
 
 .modal-skill:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: var(--primary);
+  background: rgba(143, 180, 255, 0.2);
+  border-color: rgba(143, 180, 255, 0.3);
 }
 
 .modal-skill img {
