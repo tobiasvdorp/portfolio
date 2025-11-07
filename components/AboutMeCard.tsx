@@ -21,18 +21,29 @@ const AboutMeCard = ({
   useWOW();
 
   return (
-    <li>
-      <div className={`cbp_tmlabel wow ${className}`}>
-        <h3>{title}</h3>
-        <div className="date">
-          <i className="fa fa-calendar" />
-          {date}
+    <li className="timeline-item">
+      <div className="timeline-marker">
+        <div className="timeline-dot"></div>
+        <div className="timeline-pulse"></div>
+      </div>
+      <div className={`cbp_tmlabel wow ${className} timeline-card`}>
+        <div className="timeline-card-header">
+          <h3>{title}</h3>
+          <div className="timeline-card-badges">
+            <div className="timeline-date-badge">
+              <i className="fa fa-calendar" />
+              <span>{date}</span>
+            </div>
+            <div className="timeline-location-badge">
+              <i className="fa fa-map-marker-alt" />
+              <span>{location}</span>
+            </div>
+          </div>
         </div>
-        <h4>
-          <i className="fa fa-flag fa-sm" />
-          {location}
-        </h4>
-        <p className="projectParagraph">{description}</p>
+        <div className="timeline-card-body">
+          <p className="projectParagraph">{description}</p>
+        </div>
+        <div className="timeline-card-glow"></div>
       </div>
     </li>
   );

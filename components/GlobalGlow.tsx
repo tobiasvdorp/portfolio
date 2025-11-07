@@ -10,7 +10,7 @@ const GlobalGlow = () => {
       // Calculate position relative to viewport
       const x = (e.clientX / window.innerWidth) * 100;
       const y = (e.clientY / window.innerHeight) * 100;
-      
+
       setMousePosition({ x, y });
     };
 
@@ -22,14 +22,13 @@ const GlobalGlow = () => {
   }, []);
 
   return (
-    <div 
+    <div
       className="global-glow"
       style={{
-        background: `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, var(--accent) 0%, transparent 60%)`,
+        background: `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, var(--accent) 0%, transparent 20%)`,
       }}
     />
   );
 };
 
 export default GlobalGlow;
-
