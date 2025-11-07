@@ -15,7 +15,13 @@ export const resources = {
       Welcome: "Welcome",
       Hi: "Hi",
       "I'm Tobias.": "I'm Tobias.",
+      "I'm a Developer.": "I'm a Developer.",
+      "I'm a Designer.": "I'm a Designer.",
       Explore: "Explore",
+      heroDescription:
+        "I like crafting beautiful, functional web experiences with code and creativity",
+      viewWork: "View Work",
+      scroll: "Scroll",
 
       // Aboutme
       "About myself.": "About myself.",
@@ -172,7 +178,13 @@ export const resources = {
       Welcome: "Welkom",
       Hi: "Hoi",
       "I'm Tobias.": "Ik ben Tobias.",
+      "I'm a Developer.": "Ik ben een Developer.",
+      "I'm a Designer.": "Ik ben een Designer.",
       Explore: "Ontdekken",
+      heroDescription:
+        "Ik creeër graag mooie, functionele webervaringen met code en creativiteit",
+      viewWork: "Bekijk mijn werk",
+      scroll: "Scroll",
 
       // Aboutme
       "About myself.": "Over mij.",
