@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
-import useWOW from '@/hooks/useWOW';
-import LanguageSwitcher from './LanguageSwitcher';
+import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import useWOW from "@/hooks/useWOW";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 type MenuItem = {
   textKey: string;
@@ -16,28 +16,28 @@ const scrollOffset = 83;
 const Navbar = () => {
   const { t } = useTranslation();
   const menuItems: MenuItem[] = [
-    { textKey: 'home', link: '#home', animation: 'fadeInLeftBig' },
-    { textKey: 'aboutMe', link: '#aboutme', animation: 'fadeInDownBig' },
-    { textKey: 'projects', link: '#projects', animation: 'fadeInDownBig' },
-    { textKey: 'skills', link: '#skills', animation: 'fadeInUpBig' },
-    { textKey: 'contact', link: '#contact', animation: 'fadeInRightBig' },
+    { textKey: "home", link: "#home", animation: "fadeInLeftBig" },
+    { textKey: "aboutMe", link: "#aboutme", animation: "fadeInDownBig" },
+    { textKey: "projects", link: "#projects", animation: "fadeInDownBig" },
+    { textKey: "skills", link: "#skills", animation: "fadeInUpBig" },
+    { textKey: "contact", link: "#contact", animation: "fadeInRightBig" },
   ];
 
   useWOW();
 
   useEffect(() => {
-    if (typeof document === 'undefined' || typeof window === 'undefined') {
+    if (typeof document === "undefined" || typeof window === "undefined") {
       return;
     }
 
     const anchors = Array.from(
-      document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]')
+      document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]'),
     );
 
     const handleClick = (event: MouseEvent) => {
       event.preventDefault();
       const anchor = event.currentTarget as HTMLAnchorElement | null;
-      const href = anchor?.getAttribute('href');
+      const href = anchor?.getAttribute("href");
 
       if (!href) {
         return;
@@ -53,25 +53,28 @@ const Navbar = () => {
           scrollOffset;
         window.scrollTo({
           top,
-          behavior: 'smooth',
+          behavior: "smooth",
         });
       }
     };
 
     anchors.forEach((anchor) => {
-      anchor.addEventListener('click', handleClick);
+      anchor.addEventListener("click", handleClick);
     });
 
     return () => {
       anchors.forEach((anchor) => {
-        anchor.removeEventListener('click', handleClick);
+        anchor.removeEventListener("click", handleClick);
       });
     };
   }, []);
 
   return (
     <header className="header">
-      <a href="#home" className="logo animate__animated animate__fadeInRightBig">
+      <a
+        href="#home"
+        className="logo animate__animated animate__fadeInRightBig"
+      >
         Tobias
       </a>
 

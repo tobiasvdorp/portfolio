@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useTranslation } from 'react-i18next';
-import useWOW from '@/hooks/useWOW';
-import AboutMeCard from './AboutMeCard';
+import { useTranslation } from "react-i18next";
+import useWOW from "@/hooks/useWOW";
+import AboutMeCard from "./AboutMeCard";
 
 const AboutMe = () => {
   const { t } = useTranslation();
@@ -13,52 +13,52 @@ const AboutMe = () => {
     <div id="aboutme" className="sectionClass">
       <div className="row">
         <div>
-          <h2 className="title2">{t('About myself.')}</h2>
-          <h3 className="readmore">{t('Limited edition.')}</h3>
+          <h2 className="title2">{t("About myself.")}</h2>
+          <h3 className="readmore">{t("Limited edition.")}</h3>
           <div className="wow animate__fadeInRight animate__animated tobias">
-            <h3>{t('About Tobias van Dorp')}</h3>
+            <h3>{t("About Tobias van Dorp")}</h3>
             <div className="date">
               <i className="fa fa-calendar" />
-              {t('February 7th 2003')}
+              {t("February 7th 2003")}
             </div>
             <h4>
               <i className="fa fa-flag fa-sm" />
-              {t('Maarn, Utrecht, Netherlands')}
+              {t("Maarn, Utrecht, Netherlands")}
             </h4>
-            <p>{t('aboutme_description')}</p>
+            <p>{t("aboutme_description")}</p>
           </div>
         </div>
 
         <div className="mycarreer">
           <h2 className="title2" id="carreer">
-            {t('My carreer')}
+            {t("My carreer")}
           </h2>
-          <h3 className="readmore">{t('Experience points accumulating...')}</h3>
+          <h3 className="readmore">{t("Experience points accumulating...")}</h3>
           <ul className="cbp_tmtimeline">
             <AboutMeCard
-              title={t('HAVO-degree')}
-              date={t('Juli 2021')}
-              location={t('Amersfoort, Utrecht')}
+              title={t("HAVO-degree")}
+              date={t("Juli 2021")}
+              location={t("Amersfoort, Utrecht")}
               description={
                 <>
-                  {t('havo_description')}
+                  {t("havo_description")}
                   <a
                     href="https://www.socrateshonours.org/lid-worden/socrates-awards"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="socrates"
                   >
-                    {t('Socrates Award')}
-                  </a>{' '}
-                  {t('havo_description_2')}
+                    {t("Socrates Award")}
+                  </a>{" "}
+                  {t("havo_description_2")}
                 </>
               }
             />
             <AboutMeCard
               title={t("Bachelor's degree at OpenICT")}
-              date={t('September 2022 - now')}
+              date={t("September 2022 - now")}
               location="Hogeschool Utrecht"
-              description={t('openict_description')}
+              description={t("openict_description")}
             />
           </ul>
         </div>

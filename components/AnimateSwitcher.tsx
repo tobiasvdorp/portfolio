@@ -1,32 +1,37 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
-const REDUCE_MOTION_STORAGE_KEY = 'reduceMotion';
+const REDUCE_MOTION_STORAGE_KEY = "reduceMotion";
 
 const AnimateSwitcher = () => {
   const [reduceMotion, setReduceMotion] = useState(false);
 
   useEffect(() => {
-    if (typeof window === 'undefined') {
+    if (typeof window === "undefined") {
       return;
     }
 
-    const savedMotionPref = window.localStorage.getItem(REDUCE_MOTION_STORAGE_KEY);
+    const savedMotionPref = window.localStorage.getItem(
+      REDUCE_MOTION_STORAGE_KEY,
+    );
     if (savedMotionPref !== null) {
-      setReduceMotion(savedMotionPref === 'true');
-    } else if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setReduceMotion(savedMotionPref === "true");
+    } else if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       setReduceMotion(true);
     }
   }, []);
 
   useEffect(() => {
-    if (typeof document === 'undefined' || typeof window === 'undefined') {
+    if (typeof document === "undefined" || typeof window === "undefined") {
       return;
     }
 
-    document.body.dataset.reduceMotion = reduceMotion ? 'true' : 'false';
-    window.localStorage.setItem(REDUCE_MOTION_STORAGE_KEY, JSON.stringify(reduceMotion));
+    document.body.dataset.reduceMotion = reduceMotion ? "true" : "false";
+    window.localStorage.setItem(
+      REDUCE_MOTION_STORAGE_KEY,
+      JSON.stringify(reduceMotion),
+    );
   }, [reduceMotion]);
 
   const toggleMotion = () => {
@@ -42,7 +47,10 @@ const AnimateSwitcher = () => {
         checked={!reduceMotion}
         onChange={toggleMotion}
       />
-      <label htmlFor="animate" className={`toggle ${!reduceMotion ? 'checked' : ''}`}>
+      <label
+        htmlFor="animate"
+        className={`toggle ${!reduceMotion ? "checked" : ""}`}
+      >
         <span className="toggle__handler" />
       </label>
     </div>

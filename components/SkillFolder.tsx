@@ -1,20 +1,20 @@
-'use client';
+"use client";
 
-import { useEffect, useMemo, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import type { StaticImageData } from 'next/image';
-import htmlLogo from '../public/images/HTMLlogo.png';
-import cssLogo from '../public/images/CSSlogo.png';
-import reactLogo from '../public/images/reactIMG.png';
-import nextLogo from '../public/images/next.png';
-import builderLogo from '../public/images/builder.avif';
-import tailwindLogo from '../public/images/TailwindCSS.png';
-import elementorLogo from '../public/images/Elementor.png';
-import wordpressLogo from '../public/images/WordPress.png';
-import Skill from './Skill';
-import TypeAnimation from './TypeAnimationClient';
+import { useEffect, useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
+import type { StaticImageData } from "next/image";
+import htmlLogo from "../public/images/HTMLlogo.png";
+import cssLogo from "../public/images/CSSlogo.png";
+import reactLogo from "../public/images/reactIMG.png";
+import nextLogo from "../public/images/next.png";
+import builderLogo from "../public/images/builder.avif";
+import tailwindLogo from "../public/images/TailwindCSS.png";
+import elementorLogo from "../public/images/Elementor.png";
+import wordpressLogo from "../public/images/WordPress.png";
+import Skill from "./Skill";
+import TypeAnimation from "./TypeAnimationClient";
 
-const REDUCE_MOTION_STORAGE_KEY = 'reduceMotion';
+const REDUCE_MOTION_STORAGE_KEY = "reduceMotion";
 
 type SkillDetail = {
   name: string;
@@ -29,66 +29,68 @@ const SkillFolder = () => {
   const [shouldReduceMotion, setShouldReduceMotion] = useState(false);
 
   useEffect(() => {
-    if (typeof window === 'undefined') {
+    if (typeof window === "undefined") {
       return;
     }
 
-    const savedMotionPref = window.localStorage.getItem(REDUCE_MOTION_STORAGE_KEY);
-    setShouldReduceMotion(savedMotionPref === 'true');
+    const savedMotionPref = window.localStorage.getItem(
+      REDUCE_MOTION_STORAGE_KEY,
+    );
+    setShouldReduceMotion(savedMotionPref === "true");
   }, []);
 
   const skills = useMemo<SkillDetail[]>(
     () => [
       {
-        name: 'HTML',
-        description: t('HTML_description'),
+        name: "HTML",
+        description: t("HTML_description"),
         imageSrc: htmlLogo,
-        skillLevel: t('HTML_skillLevel'),
+        skillLevel: t("HTML_skillLevel"),
       },
       {
-        name: 'CSS',
-        description: t('CSS_description'),
+        name: "CSS",
+        description: t("CSS_description"),
         imageSrc: cssLogo,
-        skillLevel: t('CSS_skillLevel'),
+        skillLevel: t("CSS_skillLevel"),
       },
       {
-        name: 'React',
-        description: t('React_description'),
+        name: "React",
+        description: t("React_description"),
         imageSrc: reactLogo,
-        skillLevel: t('React_skillLevel'),
+        skillLevel: t("React_skillLevel"),
       },
       {
-        name: 'NextJS',
-        description: t('NextJS_description'),
+        name: "NextJS",
+        description: t("NextJS_description"),
         imageSrc: nextLogo,
-        skillLevel: t('NextJS_skillLevel'),
+        skillLevel: t("NextJS_skillLevel"),
       },
       {
-        name: 'TailwindCSS',
-        description: t('TailwindCSS_description'),
+        name: "TailwindCSS",
+        description: t("TailwindCSS_description"),
         imageSrc: tailwindLogo,
-        skillLevel: t('TailwindCSS_skillLevel'),
+        skillLevel: t("TailwindCSS_skillLevel"),
       },
       {
-        name: 'Elementor',
-        description: t('Elementor_description'),
+        name: "Elementor",
+        description: t("Elementor_description"),
         imageSrc: elementorLogo,
-        skillLevel: t('Elementor_skillLevel'),
+        skillLevel: t("Elementor_skillLevel"),
       },
       {
-        name: 'Builder.io',
-        description: t('Builderio_description'),
+        name: "Builder.io",
+        description: t("Builderio_description"),
         imageSrc: builderLogo,
-        skillLevel: t('Builderio_skillLevel'),
+        skillLevel: t("Builderio_skillLevel"),
       },
       {
-        name: 'WordPress',
-        description: t('WordPress_description'),
+        name: "WordPress",
+        description: t("WordPress_description"),
         imageSrc: wordpressLogo,
-        skillLevel: t('WordPress_skillLevel'),
+        skillLevel: t("WordPress_skillLevel"),
       },
     ],
-    [t]
+    [t],
   );
 
   const selectSkill = (name: string) => {
@@ -98,8 +100,8 @@ const SkillFolder = () => {
 
   return (
     <div className="skills" id="skills">
-      <h2 className="title2">{t('skills_title')}</h2>
-      <h3 className="readmore">{t('skills_under')}</h3>
+      <h2 className="title2">{t("skills_title")}</h2>
+      <h3 className="readmore">{t("skills_under")}</h3>
       <div className="skill-folder-container">
         <div className="folder">
           <div className="skills-column">
@@ -121,20 +123,20 @@ const SkillFolder = () => {
             {selectedSkill ? (
               <>
                 <div id="whatisit">
-                  <h3>{t('what_isit')}</h3>
+                  <h3>{t("what_isit")}</h3>
                   <TypeAnimation
                     key={`description-${selectedSkill.name}`}
                     sequence={[selectedSkill.description, 1000]}
                     speed={90}
-                    style={{ color: 'var(--text)' }}
+                    style={{ color: "var(--text)" }}
                   />
                 </div>
-                <h3>{t('how_skilled')}</h3>
+                <h3>{t("how_skilled")}</h3>
                 <TypeAnimation
                   key={`skill-level-${selectedSkill.name}`}
                   sequence={[selectedSkill.skillLevel, 1000]}
                   speed={90}
-                  style={{ color: 'var(--text)' }}
+                  style={{ color: "var(--text)" }}
                 />
               </>
             ) : (
@@ -142,11 +144,11 @@ const SkillFolder = () => {
                 id="select-skill"
                 className={
                   !shouldReduceMotion
-                    ? 'animate__fadeInDown wow animate__animated animation-delay-1s'
-                    : ''
+                    ? "animate__fadeInDown wow animate__animated animation-delay-1s"
+                    : ""
                 }
               >
-                {t('skills_select')}
+                {t("skills_select")}
               </p>
             )}
           </div>

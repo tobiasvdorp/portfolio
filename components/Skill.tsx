@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import Image, { type StaticImageData } from 'next/image';
+import Image, { type StaticImageData } from "next/image";
 
 type SkillProps = {
   name: string;
@@ -10,10 +10,16 @@ type SkillProps = {
   shouldReduceMotion: boolean;
 };
 
-const Skill = ({ name, onClick, imageSrc, isActive, shouldReduceMotion }: SkillProps) => (
+const Skill = ({
+  name,
+  onClick,
+  imageSrc,
+  isActive,
+  shouldReduceMotion,
+}: SkillProps) => (
   <li
     onClick={() => onClick(name)}
-    className={`skill ${isActive ? 'active' : ''} ${!shouldReduceMotion ? 'animate__backInLeft wow animate__animated' : ''}`}
+    className={`skill ${isActive ? "active" : ""} ${!shouldReduceMotion ? "animate__backInLeft wow animate__animated" : ""}`}
   >
     <Image src={imageSrc} alt={`${name} logo`} width={48} height={48} />
     {name}

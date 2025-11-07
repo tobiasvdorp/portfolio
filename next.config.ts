@@ -1,9 +1,9 @@
-import {withSentryConfig} from '@sentry/nextjs';
-import type { NextConfig } from 'next';
+import { withSentryConfig } from "@sentry/nextjs";
+import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  output: 'export',
+  output: "export",
   images: {
     unoptimized: true,
   },

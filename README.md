@@ -34,6 +34,7 @@ $ npm list
 └── wowjs
 ...
 ```
+
 ## Contributing
 
 Feel free to clone this repository and use it as a template for your own portfolio website. All I ask is that you give credit and include a link to [tobiasvandorp.nl](https://tobiasvandorp.nl) on your website.

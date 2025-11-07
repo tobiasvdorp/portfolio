@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const Socials = () => {
   const { t } = useTranslation();
@@ -41,7 +41,7 @@ const Socials = () => {
       {showAddMe && (
         <div className="animate__animated animate__fadeInLeft">
           <p className="status addme">
-            {t('addMeOnDiscord')} <b>tobiasvandorp</b>
+            {t("addMeOnDiscord")} <b>tobiasvandorp</b>
           </p>
         </div>
       )}

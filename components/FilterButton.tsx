@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { GiSettingsKnobs } from 'react-icons/gi';
+import { GiSettingsKnobs } from "react-icons/gi";
 
 type FilterButtonProps = {
   onToggle: () => void;

@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import type { ReactNode } from 'react';
-import useWOW from '@/hooks/useWOW';
+import type { ReactNode } from "react";
+import useWOW from "@/hooks/useWOW";
 
 type AboutMeCardProps = {
   title: string;
@@ -11,7 +11,13 @@ type AboutMeCardProps = {
   className?: string;
 };
 
-const AboutMeCard = ({ title, date, location, description, className = 'animate__fadeInRight animate__animated' }: AboutMeCardProps) => {
+const AboutMeCard = ({
+  title,
+  date,
+  location,
+  description,
+  className = "animate__fadeInRight animate__animated",
+}: AboutMeCardProps) => {
   useWOW();
 
   return (

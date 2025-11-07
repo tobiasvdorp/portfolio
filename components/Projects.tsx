@@ -106,12 +106,12 @@ const Projects = () => {
         tag: "work",
       },
     ],
-    [t]
+    [t],
   );
 
   const filteredProjects = projects.filter(
     (project) =>
-      activeFilters.includes("all") || activeFilters.includes(project.tag)
+      activeFilters.includes("all") || activeFilters.includes(project.tag),
   );
 
   const showNoResults =

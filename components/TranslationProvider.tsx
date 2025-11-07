@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { useEffect, type ReactNode } from 'react';
-import { I18nextProvider } from 'react-i18next';
-import i18n from '@/lib/i18n';
+import { useEffect, type ReactNode } from "react";
+import { I18nextProvider } from "react-i18next";
+import i18n from "@/lib/i18n";
 
-const LANGUAGE_STORAGE_KEY = 'language';
+const LANGUAGE_STORAGE_KEY = "language";
 
 type TranslationProviderProps = {
   children: ReactNode;
@@ -12,7 +12,7 @@ type TranslationProviderProps = {
 
 const TranslationProvider = ({ children }: TranslationProviderProps) => {
   useEffect(() => {
-    if (typeof window === 'undefined') {
+    if (typeof window === "undefined") {
       return;
     }
 
@@ -24,14 +24,14 @@ const TranslationProvider = ({ children }: TranslationProviderProps) => {
     }
 
     const handleLanguageChange = (lng: string) => {
-      if (typeof window !== 'undefined') {
+      if (typeof window !== "undefined") {
         window.localStorage.setItem(LANGUAGE_STORAGE_KEY, lng);
       }
     };
 
-    i18n.on('languageChanged', handleLanguageChange);
+    i18n.on("languageChanged", handleLanguageChange);
     return () => {
-      i18n.off('languageChanged', handleLanguageChange);
+      i18n.off("languageChanged", handleLanguageChange);
     };
   }, []);
 

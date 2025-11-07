@@ -1,6 +1,6 @@
-import HomePage from '@/components/HomePage';
+import HomePage from "@/components/HomePage";
 
-export const dynamic = 'force-static';
+export const dynamic = "force-static";
 
 const Page = () => {
   return <HomePage />;
