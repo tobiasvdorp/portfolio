@@ -7,7 +7,7 @@ import { FaCode, FaRocket, FaArrowDown } from "react-icons/fa";
 import { useEffect, useState, useRef } from "react";
 
 const CallToAction = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const particlesRef = useRef<HTMLDivElement>(null);
   const [scrollY, setScrollY] = useState(0);
 
@@ -57,6 +57,7 @@ const CallToAction = () => {
           <span className="hero-title-line">{t("Hi")},</span>
           <span className="hero-title-main">
             <TypeAnimation
+              key={i18n.language}
               sequence={[t("I'm Tobias.")]}
               speed={50}
               repeat={0}

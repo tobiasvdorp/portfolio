@@ -1,34 +1,35 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import useWOW from "@/hooks/useWOW";
 import LanguageSwitcher from "./LanguageSwitcher";
 
-type MenuItem = {
-  textKey: string;
-  link: string;
-  animation: string;
-};
-
-const scrollOffset = 83;
+const scrollOffset = 70;
 
 const Navbar = () => {
   const { t } = useTranslation();
-  const menuItems: MenuItem[] = [
-    { textKey: "home", link: "#home", animation: "fadeInLeftBig" },
-    { textKey: "aboutMe", link: "#aboutme", animation: "fadeInDownBig" },
-    { textKey: "projects", link: "#projects", animation: "fadeInDownBig" },
-    { textKey: "skills", link: "#skills", animation: "fadeInUpBig" },
-    { textKey: "contact", link: "#contact", animation: "fadeInRightBig" },
-  ];
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  useWOW();
+  const menuItems = [
+    { textKey: "home", link: "#home" },
+    { textKey: "aboutMe", link: "#aboutme" },
+    { textKey: "projects", link: "#projects" },
+    { textKey: "skills", link: "#skills" },
+    { textKey: "contact", link: "#contact" },
+  ];
 
   useEffect(() => {
     if (typeof document === "undefined" || typeof window === "undefined") {
       return;
     }
+
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
 
     const anchors = Array.from(
       document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]'),
@@ -56,6 +57,9 @@ const Navbar = () => {
           behavior: "smooth",
         });
       }
+
+      // Close mobile menu when clicking a link
+      setIsMobileMenuOpen(false);
     };
 
     anchors.forEach((anchor) => {
@@ -63,6 +67,7 @@ const Navbar = () => {
     });
 
     return () => {
+      window.removeEventListener("scroll", handleScroll);
       anchors.forEach((anchor) => {
         anchor.removeEventListener("click", handleClick);
       });
@@ -70,33 +75,37 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className="header">
-      <a
-        href="#home"
-        className="logo animate__animated animate__fadeInRightBig"
-      >
-        Tobias
-      </a>
+    <header className={`navbar ${isScrolled ? "navbar-scrolled" : ""}`}>
+      <div className="navbar-container">
+        <a href="#home" className="navbar-logo">
+          Tobias
+        </a>
 
-      <input className="menu-btn" type="checkbox" id="menu-btn" />
-      <label className="menu-icon" htmlFor="menu-btn">
-        <span className="navicon" />
-      </label>
-      <ul className="menu">
-        {menuItems.map((item) => (
-          <li key={item.textKey}>
+        <button
+          className={`navbar-toggle ${isMobileMenuOpen ? "active" : ""}`}
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          <span className="navbar-toggle-line"></span>
+          <span className="navbar-toggle-line"></span>
+          <span className="navbar-toggle-line"></span>
+        </button>
+
+        <nav className={`navbar-menu ${isMobileMenuOpen ? "active" : ""}`}>
+          {menuItems.map((item) => (
             <a
+              key={item.textKey}
               href={item.link}
-              className={`item animate__animated animate__${item.animation}`}
+              className="navbar-link"
             >
-              {t(item.textKey)}
+              <span className="navbar-link-text">{t(item.textKey)}</span>
             </a>
-          </li>
-        ))}
-        <li>
-          <LanguageSwitcher />
-        </li>
-      </ul>
+          ))}
+          <div className="navbar-lang">
+            <LanguageSwitcher />
+          </div>
+        </nav>
+      </div>
     </header>
   );
 };
