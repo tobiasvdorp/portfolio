@@ -707,7 +707,7 @@ footer {
   --background-light-rgb: 234, 234, 234;
 }
 
-body[data-theme="dark"] {
+html[data-theme="dark"] {
   --text: var(--text-dark);
   --background: var(--background-dark);
   --primary: var(--primary-dark);
@@ -716,7 +716,7 @@ body[data-theme="dark"] {
   --background-rgb: var(--background-dark-rgb);
 }
 
-body[data-theme="light"] {
+html[data-theme="light"] {
   --text: var(--text-light);
   --background: var(--background-light);
   --primary: var(--primary-light);
@@ -2697,7 +2697,7 @@ li.skill.active {
   background-color: var(--background) !important;
 }
 .toggle.checked:before,
-body[data-theme="dark"] .settings-content button {
+html[data-theme="dark"] .settings-content button {
   color: #fff;
 }
 .settings-content.active {
