@@ -1,28 +1,36 @@
 "use client";
 
-import { ChangeEvent } from "react";
 import { useTranslation } from "react-i18next";
 
 const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
   const currentLanguage = i18n.resolvedLanguage || i18n.language;
 
-  const changeLanguage = (event: ChangeEvent<HTMLSelectElement>) => {
-    const selectedLanguage = event.target.value;
-    void i18n.changeLanguage(selectedLanguage);
+  const toggleLanguage = () => {
+    const newLanguage = currentLanguage === "en" ? "nl" : "en";
+    void i18n.changeLanguage(newLanguage);
   };
 
   return (
-    <div className="lang-switch-container">
-      <select
-        value={currentLanguage}
-        onChange={changeLanguage}
-        style={{ fontSize: "35px" }}
+    <button
+      className="lang-toggle"
+      onClick={toggleLanguage}
+      aria-label={`Switch to ${currentLanguage === "en" ? "Dutch" : "English"}`}
+      data-lang={currentLanguage}
+      type="button"
+    >
+      <span
+        className={`lang-toggle-option ${currentLanguage === "nl" ? "active" : ""}`}
       >
-        <option value="en">🇬🇧</option>
-        <option value="nl">🇳🇱</option>
-      </select>
-    </div>
+        🇳🇱
+      </span>
+      <span
+        className={`lang-toggle-option ${currentLanguage === "en" ? "active" : ""}`}
+      >
+        🇬🇧
+      </span>
+      <span className="lang-toggle-slider"></span>
+    </button>
   );
 };
 

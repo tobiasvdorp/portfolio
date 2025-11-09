@@ -24,8 +24,10 @@ type SkillDetail = {
 };
 
 const SkillFolder = () => {
-  const { t } = useTranslation();
-  const [selectedSkill, setSelectedSkill] = useState<SkillDetail | null>(null);
+  const { t, i18n } = useTranslation();
+  const [selectedSkillName, setSelectedSkillName] = useState<string | null>(
+    null
+  );
   const [shouldReduceMotion, setShouldReduceMotion] = useState(false);
 
   useEffect(() => {
@@ -34,7 +36,7 @@ const SkillFolder = () => {
     }
 
     const savedMotionPref = window.localStorage.getItem(
-      REDUCE_MOTION_STORAGE_KEY,
+      REDUCE_MOTION_STORAGE_KEY
     );
     setShouldReduceMotion(savedMotionPref === "true");
   }, []);
@@ -90,12 +92,17 @@ const SkillFolder = () => {
         skillLevel: t("WordPress_skillLevel"),
       },
     ],
-    [t],
+    [t]
   );
 
+  // Get the current selected skill from the skills array
+  const selectedSkill = useMemo(() => {
+    if (!selectedSkillName) return null;
+    return skills.find((skill) => skill.name === selectedSkillName) ?? null;
+  }, [selectedSkillName, skills]);
+
   const selectSkill = (name: string) => {
-    const skill = skills.find((item) => item.name === name) ?? null;
-    setSelectedSkill(skill);
+    setSelectedSkillName(name);
   };
 
   return (
@@ -104,6 +111,7 @@ const SkillFolder = () => {
       <h3 className="readmore">{t("skills_under")}</h3>
       <div className="skill-folder-container">
         <div className="folder">
+          <div className="folder-glow"></div>
           <div className="skills-column">
             <ul>
               {skills.map((skill) => (
@@ -112,7 +120,7 @@ const SkillFolder = () => {
                   name={skill.name}
                   onClick={selectSkill}
                   imageSrc={skill.imageSrc}
-                  isActive={selectedSkill?.name === skill.name}
+                  isActive={selectedSkillName === skill.name}
                   shouldReduceMotion={shouldReduceMotion}
                 />
               ))}
@@ -125,7 +133,7 @@ const SkillFolder = () => {
                 <div id="whatisit">
                   <h3>{t("what_isit")}</h3>
                   <TypeAnimation
-                    key={`description-${selectedSkill.name}`}
+                    key={`description-${selectedSkill.name}-${i18n.language}`}
                     sequence={[selectedSkill.description, 1000]}
                     speed={90}
                     style={{ color: "var(--text)" }}
@@ -133,7 +141,7 @@ const SkillFolder = () => {
                 </div>
                 <h3>{t("how_skilled")}</h3>
                 <TypeAnimation
-                  key={`skill-level-${selectedSkill.name}`}
+                  key={`skill-level-${selectedSkill.name}-${i18n.language}`}
                   sequence={[selectedSkill.skillLevel, 1000]}
                   speed={90}
                   style={{ color: "var(--text)" }}

@@ -7,9 +7,11 @@ import Navbar from "./Navbar";
 import Projects from "./Projects";
 import SettingsMenu from "./SettingsMenu";
 import SkillFolder from "./SkillFolder";
+import GlobalGlow from "./GlobalGlow";
 
 const HomePage = () => (
   <>
+    <GlobalGlow />
     <Navbar />
     <SettingsMenu />
     <div id="glitch">

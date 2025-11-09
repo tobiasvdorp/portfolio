@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
+import { ThemeProvider } from "next-themes";
 import TranslationProvider from "@/components/TranslationProvider";
 import "./globals.css";
 import "animate.css/animate.min.css";
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
 };
 
 const RootLayout = ({ children }: RootLayoutProps) => (
-  <html lang="en">
+  <html lang="en" suppressHydrationWarning>
     <head>
       <Script
         src="https://kit.fontawesome.com/bfbf5f508f.js"
@@ -26,8 +27,14 @@ const RootLayout = ({ children }: RootLayoutProps) => (
       />
     </head>
     <body>
-      <TranslationProvider>{children}</TranslationProvider>
-      <Analytics />
+      <ThemeProvider
+        attribute="data-theme"
+        defaultTheme="dark"
+        enableSystem={false}
+      >
+        <TranslationProvider>{children}</TranslationProvider>
+        <Analytics />
+      </ThemeProvider>
     </body>
   </html>
 );

@@ -1,37 +1,36 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
-
-const THEME_STORAGE_KEY = "theme";
-
-type Theme = "light" | "dark";
+import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 
 const ModeSwitcher = () => {
-  const [theme, setTheme] = useState<Theme>("dark");
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
 
-  const applyTheme = useCallback((nextTheme: Theme) => {
-    if (typeof document === "undefined" || typeof window === "undefined") {
-      return;
-    }
-
-    document.body.setAttribute("data-theme", nextTheme);
-    window.localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
-    setTheme(nextTheme);
+  // Prevent hydration mismatch
+  useEffect(() => {
+    setMounted(true);
   }, []);
 
-  useEffect(() => {
-    if (typeof window === "undefined") {
-      return;
-    }
-
-    const storedTheme = window.localStorage.getItem(
-      THEME_STORAGE_KEY,
-    ) as Theme | null;
-    applyTheme(storedTheme ?? "dark");
-  }, [applyTheme]);
+  if (!mounted) {
+    return (
+      <div className="toggleWrapper">
+        <input
+          type="checkbox"
+          id="dn"
+          className="dn"
+          checked={false}
+          readOnly
+        />
+        <label htmlFor="dn" className="toggle">
+          <span className="toggle__handler" />
+        </label>
+      </div>
+    );
+  }
 
   const handleThemeChange = () => {
-    applyTheme(theme === "dark" ? "light" : "dark");
+    setTheme(theme === "dark" ? "light" : "dark");
   };
 
   return (
