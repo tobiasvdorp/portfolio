@@ -1561,3 +1561,98 @@ body[data-theme="dark"] .settings-content button {
 .toggle.checked:after {
   color: #66b317;
 }
+
+/* Portfolio toast */
+.toast-notice {
+  position: fixed;
+  top: 110px;
+  right: 28px;
+  z-index: 1200;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: var(--secondary);
+  border: 1px solid var(--accent);
+  border-radius: 12px;
+  padding: 16px 18px;
+  max-width: 420px;
+  box-shadow:
+    0 12px 25px rgba(0, 0, 0, 0.25),
+    0 0 12px rgba(0, 0, 0, 0.1);
+}
+
+.toast-notice__content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.toast-notice__title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--accent);
+}
+
+.toast-notice__message {
+  font-family: "Hind Madurai", sans-serif;
+  font-size: 0.98rem;
+  opacity: 0.9;
+}
+
+.toast-notice__dismiss {
+  border: 1px solid var(--accent);
+  background-color: var(--accent);
+  color: var(--background);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.toast-notice__dismiss:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 8px 1px var(--accent);
+}
+
+.toast-notice--open {
+  animation: toastSlideIn 0.6s ease-out;
+}
+
+.toast-notice--closing {
+  animation: toastSlideOut 0.35s ease-in;
+}
+
+@keyframes toastSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes toastSlideOut {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.98);
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .toast-notice {
+    top: 90px;
+    left: 20px;
+    right: 20px;
+    max-width: none;
+  }
+}

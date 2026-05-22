@@ -153,6 +153,12 @@ export const resources = {
       theme: "Theme",
       animations: "Animations",
 
+      // Toast
+      portfolioNoticeTitle: "Portfolio update",
+      portfolioNoticeMessage:
+        "This portfolio isn't up to date anymore. I'm currently working on a new portfolio website.",
+      portfolioNoticeDismiss: "Got it",
+
       // Destroy
       destroyConfirm:
         "Are you sure you want to destroy this website? (PLEASE DON'T!!!)",
@@ -217,6 +223,12 @@ export const resources = {
       // No projects found
       "Oops! No projects found for the selected filters.":
         "Oeps! Er zijn geen projecten gevonden voor de geselecteerde filters.",
+
+      // Toast
+      portfolioNoticeTitle: "Portfolio-update",
+      portfolioNoticeMessage:
+        "Dit portfolio is niet meer up-to-date. Ik ben momenteel bezig met een nieuwe portfolio-website.",
+      portfolioNoticeDismiss: "Begrepen",
 
       // See the result
       "See the result": "Resultaat bekijken",
