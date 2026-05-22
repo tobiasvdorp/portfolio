@@ -1606,6 +1606,7 @@ body[data-theme="dark"] .settings-content button {
   color: var(--background);
   border-radius: 6px;
   padding: 8px 12px;
+  white-space: nowrap;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
   transition:
