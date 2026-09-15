@@ -190,9 +190,6 @@ h1 > span:not(.name-period) {
 }
 .social-links a {
   font-size: 11px;
-  display: flex;
-  gap: 5px;
-  align-items: center;
 }
 .hero-footnote {
   grid-column: 1 / -1;
@@ -248,12 +245,12 @@ h2 {
   text-decoration: underline;
   text-decoration-color: #b5b6a8;
 }
-.prose .external-link {
+.external-link {
   display: inline-flex;
   align-items: center;
   gap: 4px;
 }
-.prose .external-link-icon {
+.external-link-icon {
   width: 0.85em;
   height: 0.85em;
   flex-shrink: 0;

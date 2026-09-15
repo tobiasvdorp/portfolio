@@ -31,9 +31,10 @@ export function Hero({ resume }: { resume: Resume }) {
                   href={link.href}
                   target="_blank"
                   rel="noreferrer"
+                  className="external-link"
                 >
                   {link.label}
-                  <ExternalLink aria-hidden="true" className="size-3.5" />
+                  <ExternalLink aria-hidden="true" className="external-link-icon" />
                 </a>
               ))}
           </div>
